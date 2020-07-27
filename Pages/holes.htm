@@ -1,0 +1,723 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 9">
+<link rel=File-List href="./holes_files/filelist.xml">
+<link rel=Edit-Time-Data href="./holes_files/editdata.mso">
+<link rel=OLE-Object-Data href="./holes_files/oledata.mso">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:LastAuthor>Rouse</o:LastAuthor>
+  <o:Created>2001-09-16T12:18:30Z</o:Created>
+  <o:LastSaved>2001-09-16T12:18:30Z</o:LastSaved>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl24
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;}
+.xl25
+	{mso-style-parent:style0;
+	text-align:center;}
+.xl26
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;}
+.xl27
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border:.5pt solid windowtext;}
+.xl28
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;}
+.xl29
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl30
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;}
+.xl31
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;}
+.xl32
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;}
+.xl33
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;}
+.xl34
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;}
+.xl35
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	font-weight:700;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:center;
+	background:#CCFFFF;
+	mso-pattern:auto none;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>holes</x:Name>
+    <x:WorksheetOptions>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+       <x:ActiveRow>24</x:ActiveRow>
+       <x:ActiveCol>19</x:ActiveCol>
+       <x:RangeSelection>A1:T25</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:WindowHeight>6345</x:WindowHeight>
+  <x:WindowWidth>11100</x:WindowWidth>
+  <x:WindowTopX>600</x:WindowTopX>
+  <x:WindowTopY>210</x:WindowTopY>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+
+<body link=blue vlink=purple>
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.--><!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.--><!-----------------------------><!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD --><!----------------------------->
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=693 style='border-collapse:
+ collapse;table-layout:fixed;width:524pt'>
+ <col class=xl24 width=107 style='mso-width-source:userset;mso-width-alt:3913;
+ width:80pt'>
+ <col class=xl25 width=29 span=18 style='mso-width-source:userset;mso-width-alt:
+ 1060;width:22pt'>
+ <col class=xl25 width=64 style='width:48pt'>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td colspan=20 height=17 class=xl24 width=693 style='height:12.75pt;
+  width:524pt'>14th September 2001</td>
+ </tr>
+ <tr height=31 style='mso-height-source:userset;height:23.25pt'>
+  <td colspan=20 height=31 class=xl35 style='height:23.25pt'>The Holes That Did
+  The Damage!</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td colspan=20 height=17 class=xl24 style='height:12.75pt'>(9 Holes am and 18
+  Holes pm included)</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl24 style='height:12.75pt'></td>
+  <td colspan=19 class=xl25 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr class=xl26 height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl27 style='height:12.75pt'>Hole</td>
+  <td class=xl28 x:num>1</td>
+  <td class=xl28 x:num>2</td>
+  <td class=xl28 x:num>3</td>
+  <td class=xl28 x:num>4</td>
+  <td class=xl28 x:num>5</td>
+  <td class=xl28 x:num>6</td>
+  <td class=xl28 x:num>7</td>
+  <td class=xl28 x:num>8</td>
+  <td class=xl28 x:num>9</td>
+  <td class=xl28 x:num>10</td>
+  <td class=xl28 x:num>11</td>
+  <td class=xl28 x:num>12</td>
+  <td class=xl28 x:num>13</td>
+  <td class=xl28 x:num>14</td>
+  <td class=xl28 x:num>15</td>
+  <td class=xl28 x:num>16</td>
+  <td class=xl28 x:num>17</td>
+  <td class=xl28 x:num>18</td>
+  <td class=xl28>Total</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>J Press</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B6:S6)">2</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>J Colbrook</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B7:S7)">3</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>D Andrews</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B8:S8)">4</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>A Hopkins</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B9:S9)">1</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>R Thompson</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B10:S10)">1</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>P Carter</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>3</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B11:S11)">4</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>R Dickens</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B12:S12)">3</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>A Baldwin (Jnr)</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B13:S13)">5</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>M Cox</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>4</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B14:S14)">5</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>M Rouse</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B15:S15)">3</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>C Manning</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B16:S16)">2</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>K Gallagher</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>3</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B17:S17)">4</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>P Baldwin</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl31 x:num x:fmla="=SUM(B18:S18)">4</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>A Baldwin (Snr)</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>3</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B19:S19)">6</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>K Mendelson</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B20:S20)">4</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>D Rouse</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl31 x:num x:fmla="=SUM(B21:S21)">6</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>S Thompson</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>3</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>2</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B22:S22)">8</td>
+ </tr>
+ <tr height=17 style='mso-height-source:userset;height:12.75pt'>
+  <td height=17 class=xl29 style='height:12.75pt'>J Gibbons</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30 x:num>1</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl30>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B23:S23)">2</td>
+ </tr>
+ <tr height=18 style='mso-height-source:userset;height:13.5pt'>
+  <td height=18 class=xl32 style='height:13.5pt'>J Dey</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33>&nbsp;</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl33 x:num>1</td>
+  <td class=xl34 x:num x:fmla="=SUM(B24:S24)">11</td>
+ </tr>
+ <tr height=18 style='mso-height-source:userset;height:13.5pt'>
+  <td height=18 class=xl29 style='height:13.5pt'>&nbsp;</td>
+  <td class=xl31 x:num x:fmla="=SUM(B6:B24)">2</td>
+  <td class=xl31 x:num x:fmla="=SUM(C6:C24)">2</td>
+  <td class=xl31 x:num x:fmla="=SUM(D6:D24)">1</td>
+  <td class=xl31 x:num x:fmla="=SUM(E6:E24)">6</td>
+  <td class=xl31 x:num x:fmla="=SUM(F6:F24)">1</td>
+  <td class=xl31 x:num x:fmla="=SUM(G6:G24)">4</td>
+  <td class=xl31 x:num x:fmla="=SUM(H6:H24)">4</td>
+  <td class=xl31 x:num x:fmla="=SUM(I6:I24)">1</td>
+  <td class=xl31 x:num x:fmla="=SUM(J6:J24)">1</td>
+  <td class=xl31 x:num x:fmla="=SUM(K6:K24)">6</td>
+  <td class=xl31 x:num x:fmla="=SUM(L6:L24)">3</td>
+  <td class=xl31 x:num x:fmla="=SUM(M6:M24)">6</td>
+  <td class=xl31 x:num x:fmla="=SUM(N6:N24)">0</td>
+  <td class=xl31 x:num x:fmla="=SUM(O6:O24)">10</td>
+  <td class=xl31 x:num x:fmla="=SUM(P6:P24)">1</td>
+  <td class=xl31 x:num x:fmla="=SUM(Q6:Q24)">25</td>
+  <td class=xl31 x:num x:fmla="=SUM(R6:R24)">2</td>
+  <td class=xl31 x:num x:fmla="=SUM(S6:S24)">3</td>
+  <td class=xl31 x:num x:fmla="=SUM(T6:T24)">78<!-----------------------------><!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD--><!-----------------------------></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=107 style='width:80pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=29 style='width:22pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
