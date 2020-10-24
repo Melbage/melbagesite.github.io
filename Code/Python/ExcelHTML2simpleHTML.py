@@ -47,6 +47,8 @@ def listsum(numList):
 		else:
 			theSum = theSum + i
 	return theSum
+#define data as a string
+data=""
 
 for ConvertFileName in FileList:
 	with open(StartPath+'/'+ConvertFileName, 'r') as infile:
@@ -60,7 +62,7 @@ for i,Raw_line in enumerate(my_list):
 		print(i,Raw_line)
 		from_here_on_in = i
     	#print from_here_on_in
-print(from_here_on_in,my_list[from_here_on_in])
+#print(from_here_on_in,my_list[from_here_on_in])
 # assign a variable to each line 
 Season =my_list[ from_here_on_in +3 ]
 Player =my_list[ from_here_on_in +17 ]
