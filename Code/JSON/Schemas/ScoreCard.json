@@ -10,6 +10,9 @@
 				},
 				"Yardage": {
 					"type": "number"
+                },
+                "Par": {
+					"type": "number"
 				},
 				"StokeIndex": {
 					"type": "number"
