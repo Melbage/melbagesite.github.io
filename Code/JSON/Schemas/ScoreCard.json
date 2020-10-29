@@ -1,0 +1,173 @@
+{
+	"$id": "http://yourdomain.com/schemas/myschema.json",
+
+	"definitions": {
+		"Hole": {
+			"type": "object",
+			"properties": {
+				"HoleNumber": {
+					"type": "number"
+				},
+				"Yardage": {
+					"type": "number"
+				},
+				"StokeIndex": {
+					"type": "number"
+				},
+				"GrossScore": {
+					"type": "number"
+				},
+				"Points": {
+					"type": "number"
+				},
+				"Putts": {
+					"type": "number"
+				},
+				"FairwayHit": {
+					"type": "number"
+				},
+				"Ferrits": {
+					"type": "number"
+				},
+				"GreensInRegulation": {
+					"type": "number"
+				}
+
+			},
+			"required": ["HoleNumber", "StokeIndex", "GrossScore", "Points", "Putts"]
+		}
+	},
+	"type": "object",
+	"properties": {
+		"PlayerName": {
+			"type": "string"
+		},
+		"CourseName": {
+			"type": "string"
+		},
+		"FileName": {
+			"type": "string"
+		},
+		"DatePlayed": {
+			"type": "string",
+			"format": "date"
+		},
+		"Handicap": {
+			"type": "number"
+		},
+		"description": "handicaps between 0 and 54",
+		"MajorEventName": {
+			"type": "string"
+		},
+		"EventStanding": {
+			"type": "number"
+		},
+		"PrizeFund": {
+			"type": "number"
+		},
+		"NumberOfFairways": {
+			"type": "number"
+		},
+		"ScoreCard": {
+			"type": "object",
+			"properties": {
+				"Tee": {
+					"type": "string",
+					"emun": ["Blue", "White", "Yellow", "Red", "Other"]
+				},
+				"Hole1": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole2": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole3": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole4": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole5": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole6": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole7": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole8": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole9": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole10": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole11": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole12": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole13": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole14": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole15": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole16": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole17": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Hole18": {
+					"$ref": "#/definitions/Hole"
+				},
+				"Totals": {
+					"$ref": "#/definitions/Hole"
+				}
+
+			},
+
+			"ScoreCardStats": {
+				"type": "object",
+				"properties": {
+					"HoleInOne": {
+						"type": "number"
+					},
+					"Condor": {
+						"type": "number"
+					},
+					"Albatross": {
+						"type": "number"
+					},
+					"Eagle": {
+						"type": "number"
+					},
+					"Birdie": {
+						"type": "number"
+					},
+					"Par": {
+						"type": "number"
+					},
+					"Bogey": {
+						"type": "number"
+					},
+					"DoubleBogey": {
+						"type": "number"
+					},
+					"DoubleBogey+": {
+						"type": "number"
+					}
+
+				}
+			}
+		}
+	}
+}
