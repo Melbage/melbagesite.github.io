@@ -1,81 +1,59 @@
 {
-	"$id": "http://yourdomain.com/schemas/myschema.json",
-
-	
-		}
+	"Properties":{
+        "FileName": "1232.html"
 	},
-	"type": "object",
-	"properties": {
-		"PlayerName": "Dave Andrews",
-	    "CourseName": "Wimbledon Common",
-		
-		"FileName": {
-			"1232.html",
-		"DatePlayed": "08/04/2008",
-		"Handicap": 18.5,
-		"MajorEventName": "",
-		"EventStanding": 2,
-		"PrizeFund": 3750,
-		"NumberOfFairways": 13,
-		"ScoreCard": {
-			
-				"Tee": "Yellow",
-                "Hole1": [1,333,3,7,4,2,0,0,1],
-                "Hole2": [2,334,3,7,4,2,0,0,1],
-                "Hole3": [3,335,3,7,4,2,0,0,1],
-                "Hole4": [4,336,3,7,4,2,0,0,1],
-                "Hole5": [5,337,3,7,4,2,0,0,1],
-                "Hole6": [6,338,3,7,4,2,0,0,1],
-                "Hole7": [7,339,3,7,4,2,0,0,1],
-                "Hole8": [8,340,3,7,4,2,0,0,1],
-                "Hole9": [9,342,3,7,4,2,0,0,1],
-                "Hole10": [10,343,3,7,4,2,0,0,1],
-                "Hole11": [11,344,3,7,4,2,0,0,1],
-                "Hole12": [12,345,3,7,4,2,0,0,1],
-                "Hole13": [13,346,3,7,4,2,0,0,1],
-                "Hole14": [14,347,3,7,4,2,0,0,1],
-                "Hole15": [15,348,3,7,4,2,0,0,1],
-                "Hole16": [16,349,3,7,4,2,0,0,1],
-                "Hole17": [17,350,3,7,4,2,0,0,1],
-                "Hole18": [18,3351,3,7,4,2,0,0,1],
-                "Totals": [19,6333,72,96,28,30,4,1,7]
-				}
+    "Player":{
+        "PlayerName": "Dave Andrews",
+        "PlayerUUID": "9cb2951c-79f7-4cab-86bb-8ca2223d8c07",
+        "BeforeHandicap": 18.5,
+        "AfterHandicap": 18.7
+    },   
+    "CourseDetails":{
+        "CourseName": "Wimbledon Common",
+        "CourseUUID": "10b54710-7efe-4274-88bd-d9c7b34ecdef",
+        "NumberOfFairways": 13,
+        "ParSS": "68/66"
+    },
+    "Event":{
+        "EventUUID": "0d3f32d9-5dd0-4e8b-b94a-d1d493598fb7",
+        "DatePlayed": "08/04/2008",
+        "OrderOfTheDay": "1",
+        "MajorEventName": "",
+        "EventStanding": 2,
+        "PrizeFund": 3750
+         },
 
-			},
-
-			"ScoreCardStats": {
-				"type": "object",
-				"properties": {
-					"HoleInOne": {
-						"type": "number"
-					},
-					"Condor": {
-						"type": "number"
-					},
-					"Albatross": {
-						"type": "number"
-					},
-					"Eagle": {
-						"type": "number"
-					},
-					"Birdie": {
-						"type": "number"
-					},
-					"Par": {
-						"type": "number"
-					},
-					"Bogey": {
-						"type": "number"
-					},
-					"DoubleBogey": {
-						"type": "number"
-					},
-					"DoubleBogey+": {
-						"type": "number"
-					}
-
-				}
-			}
-		}
+	"ScoreCard": {
+		"Tee": "Yellow",
+		"Hole1": [1, 333, 3, 7, 4, 2, 0, 0, 1],
+		"Hole2": [2, 334, 3, 7, 4, 2, 0, 0, 1],
+		"Hole3": [3, 335, 3, 7, 4, 2, 0, 0, 1],
+		"Hole4": [4, 336, 3, 7, 4, 2, 0, 0, 1],
+		"Hole5": [5, 337, 3, 7, 4, 2, 0, 0, 1],
+		"Hole6": [6, 338, 3, 7, 4, 2, 0, 0, 1],
+		"Hole7": [7, 339, 3, 7, 4, 2, 0, 0, 1],
+		"Hole8": [8, 340, 3, 7, 4, 2, 0, 0, 1],
+		"Hole9": [9, 342, 3, 7, 4, 2, 0, 0, 1],
+		"Hole10": [10, 343, 3, 7, 4, 2, 0, 0, 1],
+		"Hole11": [11, 344, 3, 7, 4, 2, 0, 0, 1],
+		"Hole12": [12, 345, 3, 7, 4, 2, 0, 0, 1],
+		"Hole13": [13, 346, 3, 7, 4, 2, 0, 0, 1],
+		"Hole14": [14, 347, 3, 7, 4, 2, 0, 0, 1],
+		"Hole15": [15, 348, 3, 7, 4, 2, 0, 0, 1],
+		"Hole16": [16, 349, 3, 7, 4, 2, 0, 0, 1],
+		"Hole17": [17, 350, 3, 7, 4, 2, 0, 0, 1],
+		"Hole18": [18, 3351, 3, 7, 4, 2, 0, 0, 1],
+		"Totals": [19, 6333, 72, 96, 28, 30, 4, 1, 7]
+	},
+	"ScoreCardStats": {
+		"HoleInOne": 0,
+		"Condor": 0,
+		"Albatross": 0,
+		"Eagle": 0,
+		"Birdie": 1,
+		"Par": 3,
+		"Bogey": 6,
+		"DoubleBogey": 3,
+		"DoubleBogey+": 5
 	}
 }

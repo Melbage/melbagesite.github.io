@@ -1,0 +1,90 @@
+{
+	"$id": "https://melbagesite.github.io/Code/JSON/Schemas/PlayersScoreCard#",
+	"definitions": {
+		"Hole": {
+			"type": "object",
+			"properties": {
+				"HoleNumber": {"type": "number","multipleOf": 1 },
+				"Yardage": {"type": "number","multipleOf": 1},
+                "Par": {"type": "number","multipleOf": 1},
+				"StokeIndex": {"type": "number","multipleOf": 1},
+				"GrossScore": {"type": "number","multipleOf": 1},
+				"Points": {"type": "number","multipleOf": 1},
+				"Putts": {"type": "number","multipleOf": 1},
+				"FairwayHit": {"type": "number","multipleOf": 1},
+				"Ferrits": {"type": "number","multipleOf": 1},
+				"GreensInRegulation": {"type": "number","multipleOf": 1}
+
+			},
+			"required": ["HoleNumber", "StokeIndex", "GrossScore", "Points", "Putts"]
+		}
+	},
+	"type": "object",
+	"Properties": {
+		"FileName": {"type": "string"},
+		"Player":{
+			"PlayerName": {	"type": "string"},
+			"PlayerUUID": {	"type": "string",
+							"pattern": "^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"},
+			"BeforeHandicap": {"type": "number"},
+			"AfterHandicap": {"type": "number"}
+		},
+		"CourseDetails":{
+			"CourseName": {"type": "string"},
+        	"CourseUUID": {	"type": "string",
+            				"pattern": "^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"},
+			"NumberOfFairways": {"type": "number"},
+			"ParSS": { "type":"string"}
+		},
+		"Event": {
+			"EventUUID": {	"type": "string",
+							"pattern": "^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"},
+			"DatePlayed": {"type": "string","format": "date"},
+			"OrderOfDay":{"type":"number"},
+			"MajorEventName": {"type": "string"},
+			"EventStanding": {"type": "number"},
+			"PrizeFund": {"type": "number"}
+		},
+		"ScoreCard": {
+			"type": "object",
+			"properties": {
+				"Tee": {"type": "string",
+						"enum": ["Black","Blue", "White", "Yellow", "Red", "Other"]},
+				"Hole1": {"$ref": "#/definitions/Hole"},
+				"Hole2": {"$ref": "#/definitions/Hole"},
+				"Hole3": {"$ref": "#/definitions/Hole"},
+				"Hole4": {"$ref": "#/definitions/Hole"},
+				"Hole5": {"$ref": "#/definitions/Hole"},
+				"Hole6": {"$ref": "#/definitions/Hole"},
+				"Hole7": {"$ref": "#/definitions/Hole"},
+				"Hole8": {"$ref": "#/definitions/Hole"},
+				"Hole9": {"$ref": "#/definitions/Hole"},
+				"Hole10": {"$ref": "#/definitions/Hole"},
+				"Hole11": {"$ref": "#/definitions/Hole"},
+				"Hole12": {"$ref": "#/definitions/Hole"},
+				"Hole13": {"$ref": "#/definitions/Hole"},
+				"Hole14": {"$ref": "#/definitions/Hole"},
+				"Hole15": {"$ref": "#/definitions/Hole"},
+				"Hole16": {"$ref": "#/definitions/Hole"},
+				"Hole17": {"$ref": "#/definitions/Hole"},
+				"Hole18": {"$ref": "#/definitions/Hole"},
+				"Totals": {"$ref": "#/definitions/Hole"}
+			},
+			"ScoreCardStats": {
+				"type": "object",
+				"properties": {
+					"HoleInOne": {"type": "number","multipleOf": 1},
+					"Condor": {"type": "number","multipleOf": 1},
+					"Albatross": {"type": "number","multipleOf": 1},
+					"Eagle": {"type": "number","multipleOf": 1},
+					"Birdie": {"type": "number","multipleOf": 1},
+					"Par": {"type": "number","multipleOf": 1},
+					"Bogey": {"type": "number","multipleOf": 1},
+					"DoubleBogey": {"type": "number","multipleOf": 1},
+					"DoubleBogey+": {"type": "number","multipleOf": 1}
+
+				}
+			}
+		}
+	}
+}
