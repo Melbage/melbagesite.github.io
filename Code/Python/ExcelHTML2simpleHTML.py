@@ -1,18 +1,26 @@
 import sys
+import os 
+import glob
 from os import walk
-StartPath = '/Volumes/MacBook Pro 720G HD/Users/Shared/web work/melbage/mgatour/season5/apr03'
-EndPath = '/Volumes/MacBook Pro 720G HD/Users/Shared/web work/melbage/mgatour/season5/Converted/apr03'
-f = []
-for (dirpath, dirnames, filenames) in walk(StartPath):
-	f.extend(filenames)
-	break
+StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/*.htm'
+EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/Converted'
+#f = []
+#for (dirpath, dirnames, filenames) in walk(StartPath):
+#	f.extend(filenames)
 
-# check file are of the right type
-FileList = list()
-for i in f:
-	if i.find('.htm') != -1:
-		print(i)
-		FileList.append(i)
+#  		FileList.append( file.split("/")[-1]) Removes the path from the return set from glob.glob() function
+FileList =[] 
+for file in glob.glob(StartPath ): 
+	if file.endswith( ".htm" ): 
+		try:
+			FileList.append( file) # Removes the path from the return set from glob.glob() function
+		except IOError as err: 
+			print(err)
+
+
+
+
+
 
 # Filelist should be all the right type of melbage files with htm extension.
 
@@ -51,7 +59,8 @@ def listsum(numList):
 data=""
 
 for ConvertFileName in FileList:
-	with open(StartPath+'/'+ConvertFileName, 'r') as infile:
+#	with open(StartPath+'/'+ConvertFileName, 'r') as infile:
+	with open(ConvertFileName, 'r') as infile:
 		data = infile.read()  # Read the contents of the file into memory.
 
 # Return a list of the lines, breaking at line boundaries.
