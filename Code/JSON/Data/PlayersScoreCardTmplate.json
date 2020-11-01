@@ -1,0 +1,274 @@
+{
+	"Properties":{
+        "FileName": ""
+	},
+    "Player":{
+        "PlayerName": "",
+        "PlayerUUID": "",
+        "BeforeHandicap": 0,
+        "AfterHandicap": 0
+    },   
+    "CourseDetails":{
+        "CourseName": "",
+        "CourseUUID": "",
+        "NumberOfFairways": 0,
+        "ParSS": "0"
+    },
+    "Event":{
+        "EventUUID": "",
+        "DatePlayed": "",
+        "OrderOfTheDay": "1",
+        "MajorEventName": "",
+        "EventStanding": 0,
+        "PrizeFund": 0
+         },
+
+	"ScoreCard": {
+        "Tee": "0",
+        "Holes": [
+            {
+                "HoleNumber":"Totals",
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 171,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },
+            {
+                "HoleNumber":1,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },
+            {
+                "HoleNumber":2,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":3,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":4,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":5,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":6,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":7,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":8,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":9,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":10,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":11,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":12,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":13,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":14,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":15,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":16,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":17,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit": 0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            },{
+                "HoleNumber":18,
+                "Yardage": 0,
+                "Par": 0,
+                "StokeIndex": 0,
+                "GrossScore": 0,
+                "Points": 0,
+                "Putts": 0,
+                "FairwayHit":0,
+                "Ferrits": 0,
+                "GreensInRegulation": 0,
+                "HandicapStokes":0
+            }
+        ]
+
+	},
+	"ScoreCardStats": {
+		"HoleInOne": 0,
+		"Condor": 0,
+		"Albatross": 0,
+		"Eagle": 0,
+		"Birdie": 1,
+		"Par": 3,
+		"Bogey": 6,
+		"DoubleBogey": 3,
+		"DoubleBogey+": 5
+	}
+}
