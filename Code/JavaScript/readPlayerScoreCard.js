@@ -21,4 +21,4 @@ const petsData = [
     }
   ];
   
-document.getElementById("app").innerHTML='Hello World'
+document.getElementById("PlayersScoreCard").innerHTML='Hello World'
