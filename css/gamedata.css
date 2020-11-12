@@ -48,7 +48,7 @@
 	border-bottom-left-radius:0px;
 }
 .GameData tr:hover td{
-	
+	padding:8px;
 }
 .GameData tr:nth-child(odd){ background-color:#ffffff; }
 .GameData tr:nth-child(even){ background-color:#d3e9ff; }
