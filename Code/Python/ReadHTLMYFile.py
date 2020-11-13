@@ -1,7 +1,7 @@
 import sys
 from os import walk
-StartPath = '/Volumes/MacBook Pro 720G HD/Users/Shared/web work/melbage/mgatour/season5/apr03'
-EndPath = '/Volumes/MacBook Pro 720G HD/Users/Shared/web work/melbage/mgatour/season5/Converted/apr03'
+StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
+EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
 f = []
 for (dirpath, dirnames, filenames) in walk(StartPath):
 	f.extend(filenames)
@@ -51,18 +51,27 @@ data=""
 for ConvertFileName in FileList:
 	with open(StartPath+'/'+ConvertFileName, 'r') as infile:
 		data = infile.read()  # Read the contents of the file into memory.
-
+print("got here")
 # Return a list of the lines, breaking at line boundaries.
 my_list = data.splitlines()
-#print my_list
+
+
+print(type(my_list),len(my_list) )
+for C,line in enumerate(my_list):
+    if body_str in line:
+        print("line:",C,line)
+#    else:
+       # print("line is",line)
+
+
 for i,Raw_line in enumerate(my_list):
-	if Raw_line.find(body_str) != -1:
-		print( i,Raw_line)
-		from_here_on_in = i
-    	#print from_here_on_in
-        print(from_here_on_in,my_list[from_here_on_in])
-        # assign a variable to each line 
+	#if Raw_line.find(body_str):
+    if body_str in Raw_line:
+        print( i,Raw_line)
+        from_here_on_in = i   #print from_here_on_in
+        print(from_here_on_in,my_list[from_here_on_in])  # assign a variable to each line 
         Season =my_list[ from_here_on_in +3 ]
+        print(Season)
         Player =my_list[ from_here_on_in +17 ]
         Club =my_list[ from_here_on_in +23 ]
         Par_SS =my_list[ from_here_on_in +27 ]
@@ -251,9 +260,14 @@ for i,Raw_line in enumerate(my_list):
         TFW =my_list[ from_here_on_in +297 ]
         TF =my_list[ from_here_on_in +299 ]
         TGR =my_list[ from_here_on_in +301 ]
+        print("line TGR",TGR)
 
 # Removed unwanted parts of the String
-        season = season[season.find('\"')+1:season.find('\"',season.find('\"')+1)]
+        print("Before",Season)
+        #Season = Season[Season.find('\"')+1:Season.find('\"',season.find('\"')+1)]
+        print("after",Season)
+        Season = Season[Season.find('id="')+4:Season.find('" ')]
+        print("after find",Season)
         Player = Player[Player.find(startP)+1:Player.find(EndP)]
         Club = Club[Club.find(startP)+1:Club.find(EndP)]
         Par_SS = Par_SS[Par_SS.find(startP)+1:Par_SS.find(EndP)]
@@ -642,7 +656,7 @@ for i,Raw_line in enumerate(my_list):
         if(TGR=='&nbsp;'): TGR = 0
 
 
-
+        print(Par1)
         # make up lists for each hole.
         Hole = ['Hole',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,"Totals"]
         Par = ['Par',int(Par1),int(Par2),int(Par3),int(Par4),int(Par5),int(Par6),int(Par7),int(Par8),int(Par9),int(Par10),int(Par11),int(Par12),int(Par13),int(Par14),int(Par15),int(Par16),int(Par17),int(Par18),int(Tpar)]
@@ -685,7 +699,7 @@ for i,Raw_line in enumerate(my_list):
         melbagefile.write( '<html>');
         melbagefile.write( '<head>');
         melbagefile.write( '		<!-- Bring to you by http://www.CSSTableGenerator.com -->');
-        melbagefile.write( '		<link rel="stylesheet" href="../CSS/gamedata.css" type="text/css"/>	');
+        melbagefile.write( '		<link rel="stylesheet" href="../../../../CSS/gamedata.css" type="text/css"/>	');
         melbagefile.write( '	</head>');
         melbagefile.write( ' <body>');
             
