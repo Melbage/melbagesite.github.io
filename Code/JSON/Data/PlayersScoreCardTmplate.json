@@ -1,6 +1,7 @@
 {
 	"Properties":{
-        "FileName": ""
+        "FileName": "",
+        "ScoreCardUUID":""
 	},
     "Player":{
         "PlayerName": "",
@@ -16,6 +17,7 @@
     },
     "Event":{
         "EventUUID": "",
+        "Season":"",
         "DatePlayed": "",
         "OrderOfTheDay": "1",
         "MajorEventName": "",

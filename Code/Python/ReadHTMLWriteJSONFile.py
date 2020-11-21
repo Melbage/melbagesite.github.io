@@ -1,12 +1,45 @@
 import sys
 from os import walk
 import json
+import uuid
+from datetime import datetime
 
-def function(Data):
+
+
+def ReadJSONSchema():
     #Read JSON schema.
    with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
-    PlayerScoreCard = json.load(Schema)
+    SCasJSON= json.load(Schema)
+    return SCasJSON
 
+PlayerScoreCard=ReadJSONSchema()
+#Assign all the GUID/UUID to JSON files.
+
+PlayerScoreCard["Player"]["PlayerUUID"] =uuid.uuid4().hex           #Universally unique identifier for the Player should be the same on each score card 
+PlayerScoreCard["Event"]["EventUUID"] =uuid.uuid4().hex             #Universally unique identifier for the Event should be the same for each player that played event 
+
+
+
+
+def Remove_nbsp(nbsp):
+        #Test to see if there is a non-breaking space and if so replace it with zero
+    if(nbsp=='&nbsp;'): nbsp = 0
+    return nbsp
+
+def Remove_data(LineOfData):
+    #Function to remove the HTML from the data line and return just the data cleaned ready for assihgning to value
+    #HTML data is held betwene the following tabs > and </td>
+    BetweenThis = '>'
+    BetweenThat = '</td>'
+    CleanLineOfData = LineOfData[LineOfData.find(BetweenThis)+1:LineOfData.find(BetweenThat)]
+    #Now Remove non-breaking space 
+    CleanLineOfData = Remove_nbsp(CleanLineOfData)
+    return CleanLineOfData
+
+def FormatDate(DateStringObject):
+    DateObject = datetime.strptime(DateStringObject, '%d/%m/%y') #Covert date string to Dateformat eg 26/04/03
+    DateStringObject = DateObject.strftime('%Y%m%d') #Convert Date object to required string format eg 20030426
+    return DateStringObject
 
 
 
@@ -65,6 +98,7 @@ print("got here")
 # Return a list of the lines, breaking at line boundaries.
 my_list = data.splitlines()
 
+print("Filename",ConvertFileName)
 
 print(type(my_list),len(my_list) )
 for C,line in enumerate(my_list):
@@ -77,11 +111,11 @@ for C,line in enumerate(my_list):
 for i,Raw_line in enumerate(my_list):
 	#if Raw_line.find(body_str):
     if body_str in Raw_line:
-        print( i,Raw_line)
+        #print( i,Raw_line)
         from_here_on_in = i   #print from_here_on_in
-        print(from_here_on_in,my_list[from_here_on_in])  # assign a variable to each line 
+        #print(from_here_on_in,my_list[from_here_on_in])  # assign a variable to each line 
         Season =my_list[ from_here_on_in +3 ]
-        print(Season)
+        #print(Season)
         Player =my_list[ from_here_on_in +17 ]
         Club =my_list[ from_here_on_in +23 ]
         Par_SS =my_list[ from_here_on_in +27 ]
@@ -273,16 +307,22 @@ for i,Raw_line in enumerate(my_list):
         print("line TGR",TGR)
 
 # Removed unwanted parts of the String
-        print("Before",Season)
-        #Season = Season[Season.find('\"')+1:Season.find('\"',season.find('\"')+1)]
-        print("after",Season)
-        Season = Season[Season.find('id="')+4:Season.find('" ')]
-        print("after find",Season)
-        Player = Player[Player.find(startP)+1:Player.find(EndP)]
-        Club = Club[Club.find(startP)+1:Club.find(EndP)]
-        Par_SS = Par_SS[Par_SS.find(startP)+1:Par_SS.find(EndP)]
-        Num_Fairways = Num_Fairways[Num_Fairways.find(startP)+1:Num_Fairways.find(EndP)]
-        Pdate = Pdate[Pdate.find(startP)+1:Pdate.find(EndP)]
+        
+        PlayerScoreCard["Event"]["Season"] = Season[Season.find('id="')+4:Season.find('" ')]
+        PlayerScoreCard['Player']['PlayerName']=Remove_data(Player)
+        #Create the Course Details for JSON record
+        PlayerScoreCard["CourseDetails"]["CourseUUID"] =uuid.uuid4().hex    #Universally unique identifier for the Course each Tee and couse arrangement should have this the same 
+        PlayerScoreCard['CourseDetails']['CourseName'] = Remove_data(Club)
+        PlayerScoreCard['CourseDetails']['NumberOfFairways'] = Remove_data(Num_Fairways)
+        PlayerScoreCard['CourseDetails']['ParSS']=Remove_data(Par_SS)
+
+
+        #Pdate = Pdate[Pdate.find(startP)+1:Pdate.find(EndP)]
+        Pdate=Remove_data(Pdate)
+        #Create the Proprties for JSON record
+        PlayerScoreCard["Properties"]["ScoreCardUUID"] =uuid.uuid4().hex    #Universally unique identifier for the ScoreCard 
+        PlayerScoreCard["Properties"]["FileName"]=FormatDate(Pdate)+'-'+PlayerScoreCard["Properties"]["ScoreCardUUID"]+'.json'
+        
         Playing_Handicap = Playing_Handicap[Playing_Handicap.find(startP)+1:Playing_Handicap.find(EndP)]
 # Handicap = Handicap[Handicap.find('\"')+1:Handicap.find('\"',Handicap.find('\"')+1)]
         if Handicap.find('\"') != -1:
@@ -514,6 +554,9 @@ for i,Raw_line in enumerate(my_list):
         if(Green_Regulation2=='&nbsp;'): Green_Regulation2 = 0
         if(Hole3=='&nbsp;'): Hole3 = 0
         if(Par3=='&nbsp;'): Par3 = 0
+        print("Testing function: Before ",Stroke_Index3)
+        Stroke_Index3=Remove_nbsp(Stroke_Index3)
+        print("Testing function: After ",Stroke_Index3)
         if(Stroke_Index3=='&nbsp;'): Stroke_Index3 = 0
         if(Gross_Score3=='&nbsp;'): Gross_Score3 = 0
         if(Points3=='&nbsp;'): Points3 = 0
@@ -721,8 +764,8 @@ for i,Raw_line in enumerate(my_list):
         #Write out the header table of information
         melbagefile.write( "<table>");
         melbagefile.write( '<tr><td><h2>Player</h2></td><td><h2>Course</h2></td><td><h2>Date</h2></td><tr>');
-        melbagefile.write( '<tr><td><h1>'+Player+'</h1></td><td><h1>'+Club+'</h1></td><td><h1>'+Pdate+'</h1></td><tr>');
-        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+Playing_Handicap+'</h1></td><td>'+'Par/SS <h1>'+Par_SS+'</h1></td><td>'+'Events Place <h1>'+Event_Place+Major+'</h1></td><tr>');
+        melbagefile.write( '<tr><td><h1>'+PlayerScoreCard['Player']['PlayerName']+'</h1></td><td><h1>'+PlayerScoreCard['CourseDetails']['CourseName']+'</h1></td><td><h1>'+Pdate+'</h1></td><tr>');
+        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+Playing_Handicap+'</h1></td><td>'+'Par/SS <h1>'+PlayerScoreCard['CourseDetails']['ParSS']+'</h1></td><td>'+'Events Place <h1>'+Event_Place+Major+'</h1></td><tr>');
         melbagefile.write( '<tr><td>'+'Actual Handicap <h1>'+Handicap+'</h></td><td>''Number of Fairway <h1>'+Num_Fairways+'</h1></td><td> Prize Money <h1> &pound '+Prize_Money+'</h1></td><tr>');
         melbagefile.write( '</table>');
 
@@ -765,7 +808,7 @@ for i,Raw_line in enumerate(my_list):
         melbagefile.close()
 
         #Create JSON Object
-        with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
-            PlayerScoreCard = json.load(Schema)    
+        #with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
+          #  PlayerScoreCard = json.load(Schema)    
             
-            PlayerScoreCard.
+           
