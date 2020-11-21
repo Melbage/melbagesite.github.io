@@ -23,7 +23,7 @@ PlayerScoreCard["Event"]["EventUUID"] =uuid.uuid4().hex             #Universally
 
 def Remove_nbsp(nbsp):
         #Test to see if there is a non-breaking space and if so replace it with zero
-    if(nbsp=='&nbsp;'): nbsp = 0
+    if(nbsp=='&nbsp;'): nbsp = '0'
     return nbsp
 
 def Remove_data(LineOfData):
@@ -309,6 +309,11 @@ for i,Raw_line in enumerate(my_list):
 # Removed unwanted parts of the String
         
         PlayerScoreCard["Event"]["Season"] = Season[Season.find('id="')+4:Season.find('" ')]
+        PlayerScoreCard["Event"]['DatePlayed'] = Remove_data(Pdate)
+        PlayerScoreCard["Event"]['MajorEventName'] = Remove_data(Major)
+        PlayerScoreCard["Event"]['EventStanding'] =Remove_data(Event_Place)
+        PlayerScoreCard["Event"]['PrizeFund'] = Remove_data(Prize_Money)
+
         PlayerScoreCard['Player']['PlayerName']=Remove_data(Player)
         #Create the Course Details for JSON record
         PlayerScoreCard["CourseDetails"]["CourseUUID"] =uuid.uuid4().hex    #Universally unique identifier for the Course each Tee and couse arrangement should have this the same 
@@ -318,10 +323,10 @@ for i,Raw_line in enumerate(my_list):
 
 
         #Pdate = Pdate[Pdate.find(startP)+1:Pdate.find(EndP)]
-        Pdate=Remove_data(Pdate)
+        #Pdate=Remove_data(Pdate)
         #Create the Proprties for JSON record
         PlayerScoreCard["Properties"]["ScoreCardUUID"] =uuid.uuid4().hex    #Universally unique identifier for the ScoreCard 
-        PlayerScoreCard["Properties"]["FileName"]=FormatDate(Pdate)+'-'+PlayerScoreCard["Properties"]["ScoreCardUUID"]+'.json'
+        PlayerScoreCard["Properties"]["FileName"]=FormatDate(PlayerScoreCard["Event"]['DatePlayed'])+'-'+PlayerScoreCard["Properties"]["ScoreCardUUID"]+'.json'
         
         Playing_Handicap = Playing_Handicap[Playing_Handicap.find(startP)+1:Playing_Handicap.find(EndP)]
 # Handicap = Handicap[Handicap.find('\"')+1:Handicap.find('\"',Handicap.find('\"')+1)]
@@ -764,9 +769,9 @@ for i,Raw_line in enumerate(my_list):
         #Write out the header table of information
         melbagefile.write( "<table>");
         melbagefile.write( '<tr><td><h2>Player</h2></td><td><h2>Course</h2></td><td><h2>Date</h2></td><tr>');
-        melbagefile.write( '<tr><td><h1>'+PlayerScoreCard['Player']['PlayerName']+'</h1></td><td><h1>'+PlayerScoreCard['CourseDetails']['CourseName']+'</h1></td><td><h1>'+Pdate+'</h1></td><tr>');
-        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+Playing_Handicap+'</h1></td><td>'+'Par/SS <h1>'+PlayerScoreCard['CourseDetails']['ParSS']+'</h1></td><td>'+'Events Place <h1>'+Event_Place+Major+'</h1></td><tr>');
-        melbagefile.write( '<tr><td>'+'Actual Handicap <h1>'+Handicap+'</h></td><td>''Number of Fairway <h1>'+Num_Fairways+'</h1></td><td> Prize Money <h1> &pound '+Prize_Money+'</h1></td><tr>');
+        melbagefile.write( '<tr><td><h1>'+PlayerScoreCard['Player']['PlayerName']+'</h1></td><td><h1>'+PlayerScoreCard['CourseDetails']['CourseName']+'</h1></td><td><h1>'+PlayerScoreCard["Event"]['DatePlayed']+'</h1></td><tr>');
+        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+Playing_Handicap+'</h1></td><td>'+'Par/SS <h1>'+PlayerScoreCard['CourseDetails']['ParSS']+'</h1></td><td>'+'Events Place <h1>'+PlayerScoreCard["Event"]['EventStanding']+PlayerScoreCard["Event"]['MajorEventName']+'</h1></td><tr>');
+        melbagefile.write( '<tr><td>'+'Actual Handicap <h1>'+Handicap+'</h></td><td>''Number of Fairway <h1>'+PlayerScoreCard['CourseDetails']['NumberOfFairways']+'</h1></td><td> Prize Money <h1> &pound '+Prize_Money+'</h1></td><tr>');
         melbagefile.write( '</table>');
 
         melbagefile.write( '<br>');
