@@ -1,5 +1,15 @@
 import sys
 from os import walk
+import json
+
+def function(Data):
+    #Read JSON schema.
+   with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
+    PlayerScoreCard = json.load(Schema)
+
+
+
+
 StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
 EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
 f = []
@@ -753,4 +763,9 @@ for i,Raw_line in enumerate(my_list):
         melbagefile.write( '</html>');
 
         melbagefile.close()
+
+        #Create JSON Object
+        with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
+            PlayerScoreCard = json.load(Schema)    
+            
 

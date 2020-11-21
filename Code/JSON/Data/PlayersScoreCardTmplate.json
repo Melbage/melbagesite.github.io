@@ -30,7 +30,7 @@
                 "HoleNumber":"Totals",
                 "Yardage": 0,
                 "Par": 0,
-                "StokeIndex": 171,
+                "StokeIndex": "",
                 "GrossScore": 0,
                 "Points": 0,
                 "Putts": 0,
@@ -265,10 +265,10 @@
 		"Condor": 0,
 		"Albatross": 0,
 		"Eagle": 0,
-		"Birdie": 1,
-		"Par": 3,
-		"Bogey": 6,
-		"DoubleBogey": 3,
-		"DoubleBogey+": 5
+		"Birdie": 0,
+		"Par": 0,
+		"Bogey": 0,
+		"DoubleBogey": 0,
+		"DoubleBogey+": 0
 	}
 }
