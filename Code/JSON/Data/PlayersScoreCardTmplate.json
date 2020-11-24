@@ -1,13 +1,17 @@
 {
 	"Properties":{
         "FileName": "",
-        "ScoreCardUUID":""
+        "ScoreCardUUID":"",
+        "OrginalFile":"",
+        "FileInitals":""
 	},
     "Player":{
         "PlayerName": "",
         "PlayerUUID": "",
         "BeforeHandicap": 0,
-        "AfterHandicap": 0
+        "AfterHandicap": 0,
+        "PlayingHandicap": 0,
+        "HandicapAdjustment":0
     },   
     "CourseDetails":{
         "CourseName": "",

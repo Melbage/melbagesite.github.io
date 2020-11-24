@@ -15,10 +15,6 @@ def ReadJSONSchema():
 PlayerScoreCard=ReadJSONSchema()
 #Assign all the GUID/UUID to JSON files.
 
-PlayerScoreCard["Player"]["PlayerUUID"] =uuid.uuid4().hex           #Universally unique identifier for the Player should be the same on each score card 
-PlayerScoreCard["Event"]["EventUUID"] =uuid.uuid4().hex             #Universally unique identifier for the Event should be the same for each player that played event 
-
-
 
 
 def Remove_nbsp(nbsp):
@@ -34,14 +30,23 @@ def Remove_data(LineOfData):
     CleanLineOfData = LineOfData[LineOfData.find(BetweenThis)+1:LineOfData.find(BetweenThat)]
     #Now Remove non-breaking space 
     CleanLineOfData = Remove_nbsp(CleanLineOfData)
-    return CleanLineOfData
+    return CleanLineOfData.decode('utf-8', 'ignore')
 
 def FormatDate(DateStringObject):
     DateObject = datetime.strptime(DateStringObject, '%d/%m/%y') #Covert date string to Dateformat eg 26/04/03
     DateStringObject = DateObject.strftime('%Y%m%d') #Convert Date object to required string format eg 20030426
     return DateStringObject
 
-
+def PlayerInitals(FileNameString):
+    #Find the place of the first digit in string
+    #As the files have the initals as the first part of the name
+     
+    for i, DigitLocation in enumerate(FileNameString):
+        if DigitLocation.isdigit():
+            #print("DigitLocation:",i,FileNameString[0:i],FileNameString)
+            Initals=FileNameString[0:i]
+            break
+    return Initals
 
 StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
 EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
@@ -307,14 +312,22 @@ for i,Raw_line in enumerate(my_list):
         print("line TGR",TGR)
 
 # Removed unwanted parts of the String
-        
+        #Create the Events Details for JSON record
+        PlayerScoreCard["Event"]["EventUUID"] =uuid.uuid4().hex             #Universally unique identifier for the Event should be the same for each player that played event 
         PlayerScoreCard["Event"]["Season"] = Season[Season.find('id="')+4:Season.find('" ')]
         PlayerScoreCard["Event"]['DatePlayed'] = Remove_data(Pdate)
         PlayerScoreCard["Event"]['MajorEventName'] = Remove_data(Major)
         PlayerScoreCard["Event"]['EventStanding'] =Remove_data(Event_Place)
         PlayerScoreCard["Event"]['PrizeFund'] = Remove_data(Prize_Money)
-
+        #Creat the Player Details
+        PlayerScoreCard["Player"]["PlayerUUID"] =uuid.uuid4().hex           #Universally unique identifier for the Player should be the same on each score card 
         PlayerScoreCard['Player']['PlayerName']=Remove_data(Player)
+        PlayerScoreCard['Player']["BeforeHandicap"]=Remove_data(Playing_Handicap)
+        if Handicap.find('\"') != -1:
+            PlayerScoreCard['Player']["AfterHandicap"] = Handicap[Handicap.find('\"')+1:Handicap.find('\"',Handicap.find('\"')+1)]
+        else:
+            PlayerScoreCard['Player']["AfterHandicap"]= Playing_Handicap
+        
         #Create the Course Details for JSON record
         PlayerScoreCard["CourseDetails"]["CourseUUID"] =uuid.uuid4().hex    #Universally unique identifier for the Course each Tee and couse arrangement should have this the same 
         PlayerScoreCard['CourseDetails']['CourseName'] = Remove_data(Club)
@@ -327,7 +340,21 @@ for i,Raw_line in enumerate(my_list):
         #Create the Proprties for JSON record
         PlayerScoreCard["Properties"]["ScoreCardUUID"] =uuid.uuid4().hex    #Universally unique identifier for the ScoreCard 
         PlayerScoreCard["Properties"]["FileName"]=FormatDate(PlayerScoreCard["Event"]['DatePlayed'])+'-'+PlayerScoreCard["Properties"]["ScoreCardUUID"]+'.json'
+        PlayerScoreCard["Properties"]["OrginalFile"]=ConvertFileName
+        PlayerScoreCard["Properties"]["FileInitals"]=PlayerInitals(ConvertFileName)
         
+        #Create the ScoreCardStats for JSON record
+        #PlayerScoreCard["ScoreCardStats"]["ScoreCardStats"]
+        PlayerScoreCard["ScoreCardStats"]["HoleInOne"]=Remove_data(H1)
+        #PlayerScoreCard["ScoreCardStats"]["Condor"]=Remove_data(H1)
+        PlayerScoreCard["ScoreCardStats"]["Albatross"]=Remove_data(A)
+        PlayerScoreCard["ScoreCardStats"]["Eagle"]=Remove_data(E)
+        PlayerScoreCard["ScoreCardStats"]["Birdie"]=Remove_data(B)
+        PlayerScoreCard["ScoreCardStats"]["Par"]=Remove_data(P)
+        PlayerScoreCard["ScoreCardStats"]["Bogey"]=Remove_data(Bi)
+        PlayerScoreCard["ScoreCardStats"]["DoubleBogey"]=Remove_data(DB)
+        PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"]=Remove_data(DB_Plus)
+
         Playing_Handicap = Playing_Handicap[Playing_Handicap.find(startP)+1:Playing_Handicap.find(EndP)]
 # Handicap = Handicap[Handicap.find('\"')+1:Handicap.find('\"',Handicap.find('\"')+1)]
         if Handicap.find('\"') != -1:
@@ -770,8 +797,8 @@ for i,Raw_line in enumerate(my_list):
         melbagefile.write( "<table>");
         melbagefile.write( '<tr><td><h2>Player</h2></td><td><h2>Course</h2></td><td><h2>Date</h2></td><tr>');
         melbagefile.write( '<tr><td><h1>'+PlayerScoreCard['Player']['PlayerName']+'</h1></td><td><h1>'+PlayerScoreCard['CourseDetails']['CourseName']+'</h1></td><td><h1>'+PlayerScoreCard["Event"]['DatePlayed']+'</h1></td><tr>');
-        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+Playing_Handicap+'</h1></td><td>'+'Par/SS <h1>'+PlayerScoreCard['CourseDetails']['ParSS']+'</h1></td><td>'+'Events Place <h1>'+PlayerScoreCard["Event"]['EventStanding']+PlayerScoreCard["Event"]['MajorEventName']+'</h1></td><tr>');
-        melbagefile.write( '<tr><td>'+'Actual Handicap <h1>'+Handicap+'</h></td><td>''Number of Fairway <h1>'+PlayerScoreCard['CourseDetails']['NumberOfFairways']+'</h1></td><td> Prize Money <h1> &pound '+Prize_Money+'</h1></td><tr>');
+        melbagefile.write( '<tr><td>'+'Playing Handicap <h1>'+PlayerScoreCard['Player']["BeforeHandicap"]+'</h1></td><td>'+'Par/SS <h1>'+PlayerScoreCard['CourseDetails']['ParSS']+'</h1></td><td>'+'Events Place <h1>'+PlayerScoreCard["Event"]['EventStanding']+PlayerScoreCard["Event"]['MajorEventName']+'</h1></td><tr>');
+        melbagefile.write( '<tr><td>'+'Actual Handicap <h1>'+PlayerScoreCard['Player']["AfterHandicap"]+'</h></td><td>''Number of Fairway <h1>'+PlayerScoreCard['CourseDetails']['NumberOfFairways']+'</h1></td><td> Prize Money <h1> &pound '+PlayerScoreCard["Event"]['PrizeFund']+'</h1></td><tr>');
         melbagefile.write( '</table>');
 
         melbagefile.write( '<br>');
@@ -803,7 +830,7 @@ for i,Raw_line in enumerate(my_list):
         # Write out the Stats out in a table of the bottom
         melbagefile.write( "<table>");
         melbagefile.write( '<tr><td>Double\n Bogey Plus</td><td>Double\n Bogey</td><td>Bogey</td><td>Par</td><td>Birdie</td><td>Eagle</td><td>Albatross</td><td>Condor</td><td>Hole in \nOne</td><tr>');
-        melbagefile.write( '<tr><td>'+DB_Plus+'</td><td>'+DB+'</td><td>'+Bi+'</td><td>'+P+'</td><td>'+B+'</td><td>'+E+'</td><td>'+A+'</td><td>0</td><td>'+H1+'</td><tr>');
+        melbagefile.write( '<tr><td>'+PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["DoubleBogey"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Bogey"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Par"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Birdie"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Eagle"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Albatross"]+'</td><td>0</td><td>'+PlayerScoreCard["ScoreCardStats"]["HoleInOne"]+'</td><tr>');
         melbagefile.write( '</table>');
         melbagefile.write( '</div>');
         melbagefile.write( '<br>');
