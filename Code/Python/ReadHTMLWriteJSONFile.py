@@ -686,7 +686,8 @@ for i,Raw_line in enumerate(my_list):
         melbagefile.close()
 
         #Create JSON Object
-        #with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
-          #  PlayerScoreCard = json.load(Schema)    
+
+        with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/'+PlayerScoreCard["Properties"]["FileName"],'w') as f:
+            json.dump(PlayerScoreCard ,f,indent=4, sort_keys=True)    
             
            
