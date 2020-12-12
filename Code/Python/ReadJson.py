@@ -13,12 +13,18 @@ for enum,Hole in enumerate(PlayerScoreCard['ScoreCard']['Holes']):
     if enum ==0 : #this should be the totals
         print(Hole)
         print(type(Hole))
-        Hole['Ferrits'] = 18
+        Hole['Ferrets'] = 18
         print(Hole)
-    TSI= TSI+Hole['StokeIndex']
-#print(TSI)
+    else:
+        print(Hole['HoleNumber'])
+        TSI= TSI+int(Hole['HoleNumber'])
+        
+print(TSI)
+PlayerScoreCard['ScoreCard']['Holes'][0]['HoleNumber'] = TSI
+print(PlayerScoreCard['ScoreCard']['Holes'][0]['HoleNumber'])
 
-print(PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'])
-PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'] = TSI
-print(PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'])
-print(PlayerScoreCard)
+
+#print(PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'])
+#PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'] = TSI
+#print(PlayerScoreCard['ScoreCard']['Holes'][0]['StokeIndex'])
+#print(PlayerScoreCard)
