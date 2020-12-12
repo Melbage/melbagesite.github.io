@@ -1,10 +1,20 @@
 import sys
-from os import walk
+import os
 import json
 import uuid
 from datetime import datetime
 
+RootFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_Games'
+TargetJSONFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_JSON'
+TargetHTMLFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_HTML'
 
+#Rewrite to expect a file and file path to be passed to the program This means we expect the file to be passed 
+def FindFile2Convert(SrcFolder):
+    FolderList=[]
+    for filename in os.listdir(SrcFolder):
+        if filename.endswith(".htm"):
+            FolderList.append(filename)
+    return FolderList
 
 def ReadJSONSchema():
     #Read JSON schema.
@@ -48,19 +58,38 @@ def PlayerInitals(FileNameString):
             break
     return Initals
 
-StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
-EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
-f = []
-for (dirpath, dirnames, filenames) in walk(StartPath):
-	f.extend(filenames)
-	break
+#pm& am were added to orianl file name to inticate second game of the day
+def GamesInDay(FileNameStr):
+    TimeOfPlay =0
+    if(len(FileNameStr)>=14):
+            PM=FileNameStr[:-4]
+            if(PM[-2:]=='pm'):
+                TimeOfPlay = 2
+            elif(PM[-2:]=='m2'):
+                TimeOfPlay = 3
+            else:
+                TimeOfPlay = 1
+    return TimeOfPlay
 
-# check file are of the right type
-FileList = list()
-for i in f:
-	if i.find('.htm') != -1:
-		print( i)
-		FileList.append(i)
+
+FileList= FindFile2Convert(RootFolder)
+
+for file in FileList:
+    print(file)
+
+# StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
+# EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
+# f = []
+# for (dirpath, dirnames, filenames) in walk(StartPath):
+# 	f.extend(filenames)
+# 	break
+
+# # check file are of the right type
+# FileList = list()
+# for i in f:
+# 	if i.find('.htm') != -1:
+# 		print( i)
+# 		FileList.append(i)
 
 # Filelist should be all the right type of melbage files with htm extension.
 
@@ -319,6 +348,9 @@ for i,Raw_line in enumerate(my_list):
         PlayerScoreCard["Event"]['MajorEventName'] = Remove_data(Major)
         PlayerScoreCard["Event"]['EventStanding'] =Remove_data(Event_Place)
         PlayerScoreCard["Event"]['PrizeFund'] = Remove_data(Prize_Money)
+        PlayerScoreCard["Event"]["OrderOfTheDay"] = GamesInDay(ConvertFileName)
+        #If filename has pm then game is second event of the day.
+        
         #Creat the Player Details
         PlayerScoreCard["Player"]["PlayerUUID"] =uuid.uuid4().hex           #Universally unique identifier for the Player should be the same on each score card 
         PlayerScoreCard['Player']['PlayerName']=Remove_data(Player)
@@ -839,8 +871,8 @@ for i,Raw_line in enumerate(my_list):
 
         melbagefile.close()
 
-        #Create JSON Object
-        #with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/PlayersScoreCardTmplate.json') as Schema:
-          #  PlayerScoreCard = json.load(Schema)    
-            
+         #Create JSON Object
+
+        with open('/Users/paulcarter/Documents/GITHUB/Melbage/Melbagesite/melbagesite.github.io/Code/JSON/Data/'+PlayerScoreCard["Properties"]["FileName"],'w') as f:
+            json.dump(PlayerScoreCard ,f,indent=4, sort_keys=True)    
            
