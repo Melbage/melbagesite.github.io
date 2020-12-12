@@ -1,14 +1,14 @@
 {
     "CourseDetails": {
         "CourseName": "Chelsfield Lakes", 
-        "CourseUUID": "f3f783b9d25e4c9f951c1eb8db791ffc", 
+        "CourseUUID": "f206dc4aac82443fa3d0c036cf00ae81", 
         "NumberOfFairways": "14", 
         "ParSS": "71/68"
     }, 
     "Event": {
         "DatePlayed": "26/04/03", 
         "EventStanding": "3", 
-        "EventUUID": "5a3c651d509749aa878a1d37f35c687e", 
+        "EventUUID": "952c96d03a3141cc92f3708bde2c2852", 
         "MajorEventName": "0", 
         "OrderOfTheDay": "1", 
         "PrizeFund": "5,000", 
@@ -19,14 +19,14 @@
         "BeforeHandicap": "11", 
         "HandicapAdjustment": 0, 
         "PlayerName": "Keith Mendelson", 
-        "PlayerUUID": "aa9f93ad6359476793c82e5ca83ee758", 
+        "PlayerUUID": "99958479149d45659e6a7730096c1298", 
         "PlayingHandicap": 0
     }, 
     "Properties": {
         "FileInitals": "km", 
-        "FileName": "20030426-9d86c471a6644a769d23ba388bd02bcf.json", 
+        "FileName": "20030426-fe017bad127542e0890a2cffa2d3178c.json", 
         "OrginalFile": "km260403.htm", 
-        "ScoreCardUUID": "9d86c471a6644a769d23ba388bd02bcf"
+        "ScoreCardUUID": "fe017bad127542e0890a2cffa2d3178c"
     }, 
     "ScoreCard": {
         "Holes": [
