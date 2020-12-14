@@ -100,6 +100,13 @@ def GamesInDay(FileNameStr):
                 TimeOfPlay = 1
     return TimeOfPlay
 
+def Converted(FileName):
+    source_file = RootFolder+'/'+FileName
+    source_file = RootFolder+'/Converted/'+FileName
+    os.rename(source_file,source_file)
+    return
+
+
 FileList= FindFile2Convert(RootFolder)
 
 for file in FileList:
@@ -641,7 +648,7 @@ for ConvertFileName in FileList:
  
 
         op_line =op_Last_Line=list()
-                
+        print(PlayerScoreCard) 
 
        # print( TPar,TStroke_Index,TGross_Score,TPoints,TPutts,TFairways,TFerrets)
         #write out new HTML file
@@ -696,7 +703,7 @@ for ConvertFileName in FileList:
         # Write out the Stats out in a table of the bottom
         melbagefile.write( "<table>");
         melbagefile.write( '<tr><td>Double\n Bogey Plus</td><td>Double\n Bogey</td><td>Bogey</td><td>Par</td><td>Birdie</td><td>Eagle</td><td>Albatross</td><td>Condor</td><td>Hole in \nOne</td><tr>');
-        melbagefile.write( '<tr><td>'+PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["DoubleBogey"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Bogey"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Par"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Birdie"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Eagle"]+'</td><td>'+PlayerScoreCard["ScoreCardStats"]["Albatross"]+'</td><td>0</td><td>'+PlayerScoreCard["ScoreCardStats"]["HoleInOne"]+'</td><tr>');
+        melbagefile.write( '<tr><td>'+str(PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["DoubleBogey"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["Bogey"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["Par"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["Birdie"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["Eagle"])+'</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["Albatross"])+'</td><td>0</td><td>'+str(PlayerScoreCard["ScoreCardStats"]["HoleInOne"])+'</td><tr>');
         melbagefile.write( '</table>');
         melbagefile.write( '</div>');
         melbagefile.write( '<br>');
@@ -709,5 +716,8 @@ for ConvertFileName in FileList:
 
         with open(TargetJSONFolder+'/'+PlayerScoreCard["Properties"]["FileName"],'w') as f:
             json.dump(PlayerScoreCard ,f,indent=4, sort_keys=True)    
+        
+        #Move file to converted folder
+        Converted(ConvertFileName)
             
            
