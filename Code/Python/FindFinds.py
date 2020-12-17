@@ -19,18 +19,5 @@ def FindFile2Convert(SrcFolder):
 RootFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_Games'
 files= FindFile2Convert(RootFolder)
 print(files.count)
-def ReadInDataFile(HTMLFile):
-    f=""
-    with open(HTMLFile, 'r') as infile:
-		f = infile.read()  # Read the contents of the file into memory.
-# Return a list of the lines, breaking at line boundaries.
-    ReduceList=f.splitlines()
-    Marker =0
-    for i,line in enumerate(ReduceList):
-        if body_str in line:
-            Marker=i
-    #ReduceList[Marker:]
-
-    return ReduceList[Marker:]
-
+print('File one is ',files[1])
 
