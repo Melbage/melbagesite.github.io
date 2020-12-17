@@ -10,45 +10,6 @@ RootFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github
 EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
 # f = []
 
-# for (dirpath, dirnames, filenames) in walk(RootFolder,topdown=False):
-#     for file in filenames:
-#             #yield os.path.join(root,file)
-#             #f.extend(filenames)
-#             FileCount+=FileCount+1
-#     #break
-# print(FileCount)
-# check file are of the right type
-# FileList = list()
-# for i in f:
-# 	if i.find('.htm') != -1:
-# 		print( i)
-# 		FileList.append(i)
-# for dirpath, dirnames, filenames in walk(RootFolder):
-#     directory_level = dirpath.replace(macpath, " ")
-#     directory_level = directory_level.count(sep)
-#     indent = " " * 4
-#     print("{}{}/".format(indent*directory_level, path.basename(dirpath)))
-#     for f in filenames:
-#         print("{}{}".format(indent*(directory_level+1), f))
-#         FileCount+=FileCount+1
-print(FileCount)
-
-# for filename in os.listdir(RootFolder):
-#     if filename.endswith(".htm"):
-#         FileCount+=1
-#         if(len(filename)>=14):
-#             PM=filename[:-4]
-#             if(PM[-2:]=='pm'):
-#                 print("PM 1",filename,FileCount,len(filename),PM[-2:])
-#             elif(PM[-2:]=='m2'):
-#                 print("PM 2",filename,FileCount,len(filename),PM[-2:])
-#             else:
-#                 print("AM",filename,FileCount,len(filename),PM[-2:])
-#         #continue
-#     else:
-#         continue
-# print(FileCount)
-
 def FindFile2Convert(SrcFolder):
     FolderList=[]
     for filename in os.listdir(SrcFolder):
@@ -58,4 +19,18 @@ def FindFile2Convert(SrcFolder):
 RootFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_Games'
 files= FindFile2Convert(RootFolder)
 print(files.count)
+def ReadInDataFile(HTMLFile):
+    f=""
+    with open(HTMLFile, 'r') as infile:
+		f = infile.read()  # Read the contents of the file into memory.
+# Return a list of the lines, breaking at line boundaries.
+    ReduceList=f.splitlines()
+    Marker =0
+    for i,line in enumerate(ReduceList):
+        if body_str in line:
+            Marker=i
+    #ReduceList[Marker:]
+
+    return ReduceList[Marker:]
+
 

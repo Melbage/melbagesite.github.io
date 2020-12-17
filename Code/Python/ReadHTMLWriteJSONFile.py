@@ -14,6 +14,7 @@ def FindFile2Convert(SrcFolder):
     for filename in os.listdir(SrcFolder):
         if filename.endswith(".htm"):
             FolderList.append(filename)
+  
     return FolderList
 
 def ReadJSONSchema():
@@ -109,31 +110,11 @@ def Converted(FileName):
 
 FileList= FindFile2Convert(RootFolder)
 
-for file in FileList:
-    print(file)
+# for file in FileList:
+#     print(file)
 
 
     #
-
-# StartPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/TestCase/'
-# EndPath = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgatour/season5/apr03/Converted'
-# f = []
-# for (dirpath, dirnames, filenames) in walk(StartPath):
-# 	f.extend(filenames)
-# 	break
-
-# # check file are of the right type
-# FileList = list()
-# for i in f:
-# 	if i.find('.htm') != -1:
-# 		print( i)
-# 		FileList.append(i)
-
-# Filelist should be all the right type of melbage files with htm extension.
-
-#def DataMine(My_List):
-# Predefine string to look for and match
-    
 
 
 # define functions for use else where
@@ -152,9 +133,15 @@ def ReadInDataFile(HTMLFile):
     f=""
     with open(HTMLFile, 'r') as infile:
 		f = infile.read()  # Read the contents of the file into memory.
-    print("got here - reading File: ",HTMLFile)
 # Return a list of the lines, breaking at line boundaries.
-    return f.splitlines()
+    ReduceList=f.splitlines()
+    Marker =0
+    for i,line in enumerate(ReduceList):
+        if body_str in line:
+            Marker=i
+    #ReduceList[Marker:]
+
+    return ReduceList[Marker:]
 
 #print("Filename",ConvertFileName)
 
@@ -176,11 +163,10 @@ startP = ">"
 EndP = "</td>"
 for ConvertFileName in FileList:
     my_list=ReadInDataFile(RootFolder+'/'+ConvertFileName)
-    for i,Raw_line in enumerate(my_list):
+    #for i,Raw_line in enumerate(my_list):
         if body_str in Raw_line:
             from_here_on_in = i   #print from_here_on_in
             Season =my_list[ from_here_on_in +3 ]
-            #print(Season)
             Player =my_list[ from_here_on_in +17 ]
             Club =my_list[ from_here_on_in +23 ]
             Par_SS =my_list[ from_here_on_in +27 ]
@@ -713,7 +699,10 @@ for ConvertFileName in FileList:
         melbagefile.close()
 
         #Create JSON Object
-
+        print("File",TargetJSONFolder+'/'+PlayerScoreCard["Properties"]["FileName"])
+        print("FileName",PlayerScoreCard["Properties"]["FileName"])
+        print("FileName",PlayerScoreCard["Properties"])
+        #PlayerScoreCard["Properties"]["FileName"]
         with open(TargetJSONFolder+'/'+PlayerScoreCard["Properties"]["FileName"],'w') as f:
             json.dump(PlayerScoreCard ,f,indent=4, sort_keys=True)    
         
