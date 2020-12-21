@@ -528,9 +528,13 @@ global TargetHTMLFolder
 RootFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_Games'
 TargetJSONFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_JSON'
 TargetHTMLFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/MGA_HTML'
+#Following folder were found to have different lenght data files. so slip them into groups.
+223Folder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/RAW/223'
+224Folder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/RAW/224'
+OtherFolder = '/Users/paulcarter/Documents/melbageWebsite/Live/melbagesite.github.io/mgaData/RAW/other'
 
 #Create a list of files to convert
-FileList= FindFile2Convert(RootFolder)
+FileList= FindFile2Convert(223Folder)
 #Loop all files. 
 for File in FileList:
     #create Playerscorecard object ready to populate with data.
