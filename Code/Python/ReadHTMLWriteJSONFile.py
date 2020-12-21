@@ -41,7 +41,10 @@ def RemoveData(LineOfData):
 
 #Converts dates in to correct format for use else where
 def FormatDate(DateStringObject):
-    DateObject = datetime.strptime(DateStringObject, '%d/%m/%y') #Covert date string to Dateformat eg 26/04/03
+    if(len(DateStringObject)>=9):
+        DateObject = datetime.strptime(DateStringObject, '%d/%m/%Y') #Covert date string to Dateformat eg 26/04/03
+    else:
+        DateObject = datetime.strptime(DateStringObject, '%d/%m/%y') #Covert date string to Dateformat eg 26/04/03
     DateStringObject = DateObject.strftime('%Y%m%d') #Convert Date object to required string format eg 20030426
     return DateStringObject
 
@@ -74,7 +77,7 @@ def SetScoreCardTotals():
             TFerrets += int(Record["Ferrets"])
             if Record["GreensInRegulation"] != "0":
                 TGreen_Regulations += 1
-    PlayerScoreCard ["ScoreCard"]["Holes"][0]["HoleNumber"]=RemoveData()
+    PlayerScoreCard ["ScoreCard"]["Holes"][0]["HoleNumber"]=''
     #PlayerScoreCard ["ScoreCard"]["Holes"][0]["Yardage"]=RemoveData()
     PlayerScoreCard["ScoreCard"]["Holes"][0]["Par"]=TPar
     PlayerScoreCard["ScoreCard"]["Holes"][0]["StokeIndex"]=TStroke_Index
@@ -102,8 +105,8 @@ def GamesInDay(FileNameStr):
 #Move converted out out to another directory so to help keep track
 def Converted(FileName):
     source_file = RootFolder+'/'+FileName
-    source_file = RootFolder+'/Converted/'+FileName
-    os.rename(source_file,source_file)
+    desination_file = RootFolder+'/Converted/'+FileName
+    os.rename(source_file,desination_file)
     return
 
 # define functions for use else where Not sure still needed!!
@@ -122,8 +125,10 @@ def listsum(numList):
 def ReadInDataFile(HTMLFile):
     # File to be loaded.
     f=""
+    CleanList=[]
     # String to match in file.
     body_str = "<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD"
+    Bad_Data = "<col"
     #Counter in files for line with above string to match
     Marker =0
     ReadFile=RootFolder+'/'+HTMLFile
@@ -136,8 +141,28 @@ def ReadInDataFile(HTMLFile):
     for i,line in enumerate(ReduceList):
         if body_str in line:
             Marker=i
+    #Remove any lines which begin with <col from data 
+    for GoodLine in ReduceList[Marker:]:
+        if Bad_Data not in GoodLine:
+            CleanList.append(GoodLine)
    #Only return the data from the HTLM and not the classes and CSS details.
-    return ReduceList[Marker:]
+    return CleanList
+
+#To find in str contains a number value
+def ActualHandicap(HTMLHandicapStr):
+    ValidationString = 'x:num"'
+    EndString ='">'
+    Handicap=0
+    if ValidationString in HTMLHandicapStr:
+        Start=HTMLHandicapStr.index(ValidationString)+len(ValidationString)
+        End=HTMLHandicapStr.index('EndString',Start)
+        #start = s.index( first ) + len( first )
+        #end = s.index( last, start )
+        #return s[start:end]
+        Handicap= HTMLHandicapStr[Start:End]
+    else:
+       Handicap= RemoveData(HTMLHandicapStr)
+    return(Handicap)
 
 # Take the data from the HTML format and populate a JSON object 
 def PopulateScoreCard(my_list,FileName):
@@ -146,23 +171,24 @@ def PopulateScoreCard(my_list,FileName):
     PlayerScoreCard["Event"]["EventUUID"] =uuid.uuid4().hex             #Universally unique identifier for the Event should be the same for each player that played event 
     Season =my_list[3]
     PlayerScoreCard["Event"]["Season"] = Season[Season.find('id="')+4:Season.find('" ')]
-    PlayerScoreCard["Event"]['DatePlayed'] = RemoveData(my_list[34])
-    PlayerScoreCard["Event"]['MajorEventName'] = RemoveData(my_list[42])
-    PlayerScoreCard["Event"]['EventStanding'] =RemoveData(my_list[41])
-    PlayerScoreCard["Event"]['PrizeFund'] = RemoveData(my_list[46])
+    PlayerScoreCard["Event"]['DatePlayed'] = RemoveData(my_list[26])
+    PlayerScoreCard["Event"]['MajorEventName'] = RemoveData(my_list[34])
+    PlayerScoreCard["Event"]['EventStanding'] =RemoveData(my_list[33])
+    PlayerScoreCard["Event"]['PrizeFund'] = RemoveData(my_list[37])
     PlayerScoreCard["Event"]["OrderOfTheDay"] = GamesInDay(FileName)
     #If filename has pm then game is second event of the day.
     #Creat the Player Details
     PlayerScoreCard["Player"]["PlayerUUID"] =uuid.uuid4().hex           #Universally unique identifier for the Player should be the same on each score card 
-    PlayerScoreCard['Player']['PlayerName']=RemoveData(my_list[17])
-    Playing_Handicap =my_list[36]
-    PlayerScoreCard['Player']["BeforeHandicap"]=RemoveData(my_list[36])
+    PlayerScoreCard['Player']['PlayerName']=RemoveData(my_list[10])
+    Playing_Handicap =my_list[28]
+    PlayerScoreCard['Player']["PlayingHandicap"]=RemoveData(my_list[28])
+    PlayerScoreCard['Player']["BeforeHandicap"]=ActualHandicap(my_list[28])
     PlayerScoreCard['Player']["AfterHandicap"] = 0
     #Create the Course Details for JSON record
     PlayerScoreCard["CourseDetails"]["CourseUUID"] =uuid.uuid4().hex    #Universally unique identifier for the Course each Tee and couse arrangement should have this the same 
-    PlayerScoreCard['CourseDetails']['CourseName'] = RemoveData(my_list[23])
-    PlayerScoreCard['CourseDetails']['NumberOfFairways'] = RemoveData(my_list[30])
-    PlayerScoreCard['CourseDetails']['ParSS']=RemoveData(my_list[27])
+    PlayerScoreCard['CourseDetails']['CourseName'] = RemoveData(my_list[16])
+    PlayerScoreCard['CourseDetails']['NumberOfFairways'] = RemoveData(my_list[22])
+    PlayerScoreCard['CourseDetails']['ParSS']=RemoveData(my_list[20])
     #Pdate = Pdate[Pdate.find(startP)+1:Pdate.find(EndP)]
     #Pdate=RemoveData(Pdate)
     #Create the Proprties for JSON record
@@ -173,231 +199,231 @@ def PopulateScoreCard(my_list,FileName):
     
     #Create the ScoreCardStats for JSON record
     #PlayerScoreCard["ScoreCardStats"]["ScoreCardStats"]
-    PlayerScoreCard["ScoreCardStats"]["HoleInOne"]=RemoveData(my_list[68])
+    PlayerScoreCard["ScoreCardStats"]["HoleInOne"]=RemoveData(my_list[59])
     #PlayerScoreCard["ScoreCardStats"]["Condor"]=RemoveData(H1)
-    PlayerScoreCard["ScoreCardStats"]["Albatross"]=RemoveData(my_list[67])
-    PlayerScoreCard["ScoreCardStats"]["Eagle"]=RemoveData(my_list[66])
-    PlayerScoreCard["ScoreCardStats"]["Birdie"]=RemoveData(my_list[65])
-    PlayerScoreCard["ScoreCardStats"]["Par"]=RemoveData(my_list[64])
-    PlayerScoreCard["ScoreCardStats"]["Bogey"]=RemoveData(my_list[63])
-    PlayerScoreCard["ScoreCardStats"]["DoubleBogey"]=RemoveData(my_list[62])
-    PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"]=RemoveData(my_list[61])
+    PlayerScoreCard["ScoreCardStats"]["Albatross"]=RemoveData(my_list[58])
+    PlayerScoreCard["ScoreCardStats"]["Eagle"]=RemoveData(my_list[57])
+    PlayerScoreCard["ScoreCardStats"]["Birdie"]=RemoveData(my_list[56])
+    PlayerScoreCard["ScoreCardStats"]["Par"]=RemoveData(my_list[55])
+    PlayerScoreCard["ScoreCardStats"]["Bogey"]=RemoveData(my_list[54])
+    PlayerScoreCard["ScoreCardStats"]["DoubleBogey"]=RemoveData(my_list[53])
+    PlayerScoreCard["ScoreCardStats"]["DoubleBogey+"]=RemoveData(my_list[52])
     
     #Hole 1
-    #PlayerScoreCard ["ScoreCard"]["Holes"][1]["HoleNumber"]=RemoveData()
+    #PlayerScoreCard ["ScoreCard"]["Holes"][1]["HoleNumber"]=RemoveData(my_list[76])
     #PlayerScoreCard ["ScoreCard"]["Holes"][1]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["Par"]=RemoveData(my_list[90])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["StokeIndex"]=RemoveData(my_list[91])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["GrossScore"]=RemoveData(my_list[92])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["Points"]=RemoveData(my_list[93])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["Putts"]=RemoveData(my_list[94])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["FairwayHit"]=RemoveData(my_list[95])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["Ferrets"]=RemoveData(my_list[96])
-    PlayerScoreCard["ScoreCard"]["Holes"][1]["GreensInRegulation"]=RemoveData(my_list[97])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["Par"]=RemoveData(my_list[77])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["StokeIndex"]=RemoveData(my_list[78])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["GrossScore"]=RemoveData(my_list[79])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["Points"]=RemoveData(my_list[80])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["Putts"]=RemoveData(my_list[81])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["FairwayHit"]=RemoveData(my_list[82])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["Ferrets"]=RemoveData(my_list[83])
+    PlayerScoreCard["ScoreCard"]["Holes"][1]["GreensInRegulation"]=RemoveData(my_list[84])
     #PlayerScoreCard ["ScoreCard"]["Holes"][1]["HandicapStokes"]=RemoveData()
     #Hole2
     #PlayerScoreCard ["ScoreCard"]["Holes"][2]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][2]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["Par"]=RemoveData(my_list[101])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["StokeIndex"]=RemoveData(my_list[102])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["GrossScore"]=RemoveData(my_list[103])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["Points"]=RemoveData(my_list[104])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["Putts"]=RemoveData(my_list[105])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["FairwayHit"]=RemoveData(my_list[106])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["Ferrets"]=RemoveData(my_list[107])
-    PlayerScoreCard["ScoreCard"]["Holes"][2]["GreensInRegulation"]=RemoveData(my_list[108])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["Par"]=RemoveData(my_list[88])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["StokeIndex"]=RemoveData(my_list[89])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["GrossScore"]=RemoveData(my_list[90])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["Points"]=RemoveData(my_list[91])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["Putts"]=RemoveData(my_list[92])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["FairwayHit"]=RemoveData(my_list[93])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["Ferrets"]=RemoveData(my_list[94])
+    PlayerScoreCard["ScoreCard"]["Holes"][2]["GreensInRegulation"]=RemoveData(my_list[95])
     #PlayerScoreCard ["ScoreCard"]["Holes"][12]["HandicapStokes"]=RemoveData()
     #Hole 3
     #PlayerScoreCard ["ScoreCard"]["Holes"][3]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][3]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["Par"]=RemoveData(my_list[112])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["StokeIndex"]=RemoveData(my_list[113])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["GrossScore"]=RemoveData(my_list[114])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["Points"]=RemoveData(my_list[115])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["Putts"]=RemoveData(my_list[116])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["FairwayHit"]=RemoveData(my_list[117])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["Ferrets"]=RemoveData(my_list[118])
-    PlayerScoreCard["ScoreCard"]["Holes"][3]["GreensInRegulation"]=RemoveData(my_list[119])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["Par"]=RemoveData(my_list[99])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["StokeIndex"]=RemoveData(my_list[100])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["GrossScore"]=RemoveData(my_list[101])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["Points"]=RemoveData(my_list[102])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["Putts"]=RemoveData(my_list[103])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["FairwayHit"]=RemoveData(my_list[104])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["Ferrets"]=RemoveData(my_list[105])
+    PlayerScoreCard["ScoreCard"]["Holes"][3]["GreensInRegulation"]=RemoveData(my_list[106])
     #PlayerScoreCard ["ScoreCard"]["Holes"][3]["HandicapStokes"]=RemoveData()
     #Hole 4
     #PlayerScoreCard ["ScoreCard"]["Holes"][4]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][4]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["Par"]=RemoveData(my_list[123])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["StokeIndex"]=RemoveData(my_list[124])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["GrossScore"]=RemoveData(my_list[125])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["Points"]=RemoveData(my_list[126])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["Putts"]=RemoveData(my_list[127])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["FairwayHit"]=RemoveData(my_list[128])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["Ferrets"]=RemoveData(my_list[129])
-    PlayerScoreCard["ScoreCard"]["Holes"][4]["GreensInRegulation"]=RemoveData(my_list[130])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["Par"]=RemoveData(my_list[110])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["StokeIndex"]=RemoveData(my_list[111])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["GrossScore"]=RemoveData(my_list[112])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["Points"]=RemoveData(my_list[113])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["Putts"]=RemoveData(my_list[114])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["FairwayHit"]=RemoveData(my_list[115])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["Ferrets"]=RemoveData(my_list[116])
+    PlayerScoreCard["ScoreCard"]["Holes"][4]["GreensInRegulation"]=RemoveData(my_list[117])
     #PlayerScoreCard ["ScoreCard"]["Holes"][4]["HandicapStokes"]=RemoveData()
     #Hole 5
     #PlayerScoreCard ["ScoreCard"]["Holes"][5]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][5]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["Par"]=RemoveData(my_list[134])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["StokeIndex"]=RemoveData(my_list[135])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["GrossScore"]=RemoveData(my_list[136])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["Points"]=RemoveData(my_list[137])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["Putts"]=RemoveData(my_list[138])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["FairwayHit"]=RemoveData(my_list[139])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["Ferrets"]=RemoveData(my_list[140])
-    PlayerScoreCard["ScoreCard"]["Holes"][5]["GreensInRegulation"]=RemoveData(my_list[141])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["Par"]=RemoveData(my_list[121])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["StokeIndex"]=RemoveData(my_list[122])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["GrossScore"]=RemoveData(my_list[123])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["Points"]=RemoveData(my_list[124])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["Putts"]=RemoveData(my_list[125])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["FairwayHit"]=RemoveData(my_list[126])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["Ferrets"]=RemoveData(my_list[127])
+    PlayerScoreCard["ScoreCard"]["Holes"][5]["GreensInRegulation"]=RemoveData(my_list[128])
     #PlayerScoreCard ["ScoreCard"]["Holes"][5]["HandicapStokes"]=RemoveData()
     #Hole 6
     #PlayerScoreCard ["ScoreCard"]["Holes"][6]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][6]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["Par"]=RemoveData(my_list[145])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["StokeIndex"]=RemoveData(my_list[146])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["GrossScore"]=RemoveData(my_list[147])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["Points"]=RemoveData(my_list[148])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["Putts"]=RemoveData(my_list[149])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["FairwayHit"]=RemoveData(my_list[150])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["Ferrets"]=RemoveData(my_list[151])
-    PlayerScoreCard["ScoreCard"]["Holes"][6]["GreensInRegulation"]=RemoveData(my_list[152])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["Par"]=RemoveData(my_list[132])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["StokeIndex"]=RemoveData(my_list[133])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["GrossScore"]=RemoveData(my_list[134])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["Points"]=RemoveData(my_list[135])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["Putts"]=RemoveData(my_list[136])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["FairwayHit"]=RemoveData(my_list[137])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["Ferrets"]=RemoveData(my_list[138])
+    PlayerScoreCard["ScoreCard"]["Holes"][6]["GreensInRegulation"]=RemoveData(my_list[139])
     #PlayerScoreCard ["ScoreCard"]["Holes"][6]["HandicapStokes"]=RemoveData()
     #Hole 7
     #PlayerScoreCard ["ScoreCard"]["Holes"][7]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][7]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["Par"]=RemoveData(my_list[156])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["StokeIndex"]=RemoveData(my_list[157])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["GrossScore"]=RemoveData(my_list[158])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["Points"]=RemoveData(my_list[159])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["Putts"]=RemoveData(my_list[160])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["FairwayHit"]=RemoveData(my_list[161])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["Ferrets"]=RemoveData(my_list[162])
-    PlayerScoreCard["ScoreCard"]["Holes"][7]["GreensInRegulation"]=RemoveData(my_list[163])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["Par"]=RemoveData(my_list[143])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["StokeIndex"]=RemoveData(my_list[144])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["GrossScore"]=RemoveData(my_list[145])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["Points"]=RemoveData(my_list[146])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["Putts"]=RemoveData(my_list[147])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["FairwayHit"]=RemoveData(my_list[148])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["Ferrets"]=RemoveData(my_list[149])
+    PlayerScoreCard["ScoreCard"]["Holes"][7]["GreensInRegulation"]=RemoveData(my_list[150])
     #PlayerScoreCard ["ScoreCard"]["Holes"][7]["HandicapStokes"]=RemoveData()
     #Hole 8
     #PlayerScoreCard ["ScoreCard"]["Holes"][8]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][8]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["Par"]=RemoveData(my_list[167])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["StokeIndex"]=RemoveData(my_list[168])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["GrossScore"]=RemoveData(my_list[169])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["Points"]=RemoveData(my_list[170])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["Putts"]=RemoveData(my_list[171])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["FairwayHit"]=RemoveData(my_list[172])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["Ferrets"]=RemoveData(my_list[173])
-    PlayerScoreCard["ScoreCard"]["Holes"][8]["GreensInRegulation"]=RemoveData(my_list[174])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["Par"]=RemoveData(my_list[154])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["StokeIndex"]=RemoveData(my_list[155])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["GrossScore"]=RemoveData(my_list[156])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["Points"]=RemoveData(my_list[157])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["Putts"]=RemoveData(my_list[158])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["FairwayHit"]=RemoveData(my_list[159])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["Ferrets"]=RemoveData(my_list[160])
+    PlayerScoreCard["ScoreCard"]["Holes"][8]["GreensInRegulation"]=RemoveData(my_list[161])
     #PlayerScoreCard ["ScoreCard"]["Holes"][8]["HandicapStokes"]=RemoveData()
     #Hole 9
     #PlayerScoreCard ["ScoreCard"]["Holes"][9]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][9]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["Par"]=RemoveData(my_list[178])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["StokeIndex"]=RemoveData(my_list[179])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["GrossScore"]=RemoveData(my_list[180])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["Points"]=RemoveData(my_list[181])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["Putts"]=RemoveData(my_list[182])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["FairwayHit"]=RemoveData(my_list[183])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["Ferrets"]=RemoveData(my_list[184])
-    PlayerScoreCard["ScoreCard"]["Holes"][9]["GreensInRegulation"]=RemoveData(my_list[185])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["Par"]=RemoveData(my_list[165])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["StokeIndex"]=RemoveData(my_list[166])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["GrossScore"]=RemoveData(my_list[167])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["Points"]=RemoveData(my_list[168])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["Putts"]=RemoveData(my_list[169])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["FairwayHit"]=RemoveData(my_list[170])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["Ferrets"]=RemoveData(my_list[171])
+    PlayerScoreCard["ScoreCard"]["Holes"][9]["GreensInRegulation"]=RemoveData(my_list[172])
     #PlayerScoreCard ["ScoreCard"]["Holes"][9]["HandicapStokes"]=RemoveData()
     #Hole 10
     #PlayerScoreCard ["ScoreCard"]["Holes"][10]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][10]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["Par"]=RemoveData(my_list[189])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["StokeIndex"]=RemoveData(my_list[190])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["GrossScore"]=RemoveData(my_list[191])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["Points"]=RemoveData(my_list[192])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["Putts"]=RemoveData(my_list[193])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["FairwayHit"]=RemoveData(my_list[194])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["Ferrets"]=RemoveData(my_list[195])
-    PlayerScoreCard["ScoreCard"]["Holes"][10]["GreensInRegulation"]=RemoveData(my_list[196])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["Par"]=RemoveData(my_list[176])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["StokeIndex"]=RemoveData(my_list[177])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["GrossScore"]=RemoveData(my_list[178])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["Points"]=RemoveData(my_list[179])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["Putts"]=RemoveData(my_list[180])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["FairwayHit"]=RemoveData(my_list[181])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["Ferrets"]=RemoveData(my_list[182])
+    PlayerScoreCard["ScoreCard"]["Holes"][10]["GreensInRegulation"]=RemoveData(my_list[183])
     #PlayerScoreCard ["ScoreCard"]["Holes"][10]["HandicapStokes"]=RemoveData()
     #Hole 11
     #PlayerScoreCard ["ScoreCard"]["Holes"][11]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][11]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["Par"]=RemoveData(my_list[200])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["StokeIndex"]=RemoveData(my_list[201])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["GrossScore"]=RemoveData(my_list[202])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["Points"]=RemoveData(my_list[203])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["Putts"]=RemoveData(my_list[204])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["FairwayHit"]=RemoveData(my_list[205])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["Ferrets"]=RemoveData(my_list[206])
-    PlayerScoreCard["ScoreCard"]["Holes"][11]["GreensInRegulation"]=RemoveData(my_list[207])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["Par"]=RemoveData(my_list[187])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["StokeIndex"]=RemoveData(my_list[188])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["GrossScore"]=RemoveData(my_list[189])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["Points"]=RemoveData(my_list[190])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["Putts"]=RemoveData(my_list[191])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["FairwayHit"]=RemoveData(my_list[192])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["Ferrets"]=RemoveData(my_list[193])
+    PlayerScoreCard["ScoreCard"]["Holes"][11]["GreensInRegulation"]=RemoveData(my_list[194])
     #PlayerScoreCard ["ScoreCard"]["Holes"][11]["HandicapStokes"]=RemoveData()
     #Hole 12
     #PlayerScoreCard ["ScoreCard"]["Holes"][12]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][12]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["Par"]=RemoveData(my_list[211])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["StokeIndex"]=RemoveData(my_list[212])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["GrossScore"]=RemoveData(my_list[213])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["Points"]=RemoveData(my_list[214])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["Putts"]=RemoveData(my_list[215])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["FairwayHit"]=RemoveData(my_list[216])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["Ferrets"]=RemoveData(my_list[217])
-    PlayerScoreCard["ScoreCard"]["Holes"][12]["GreensInRegulation"]=RemoveData(my_list[218])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["Par"]=RemoveData(my_list[198])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["StokeIndex"]=RemoveData(my_list[199])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["GrossScore"]=RemoveData(my_list[200])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["Points"]=RemoveData(my_list[201])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["Putts"]=RemoveData(my_list[202])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["FairwayHit"]=RemoveData(my_list[203])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["Ferrets"]=RemoveData(my_list[204])
+    PlayerScoreCard["ScoreCard"]["Holes"][12]["GreensInRegulation"]=RemoveData(my_list[205])
     #PlayerScoreCard ["ScoreCard"]["Holes"][12]["HandicapStokes"]=RemoveData()
     #Hole 13
     #PlayerScoreCard ["ScoreCard"]["Holes"][13]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][13]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["Par"]=RemoveData(my_list[222])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["StokeIndex"]=RemoveData(my_list[223])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["GrossScore"]=RemoveData(my_list[224])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["Points"]=RemoveData(my_list[224])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["Putts"]=RemoveData(my_list[225])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["FairwayHit"]=RemoveData(my_list[226])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["Ferrets"]=RemoveData(my_list[227])
-    PlayerScoreCard["ScoreCard"]["Holes"][13]["GreensInRegulation"]=RemoveData(my_list[228])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["Par"]=RemoveData(my_list[209])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["StokeIndex"]=RemoveData(my_list[210])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["GrossScore"]=RemoveData(my_list[211])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["Points"]=RemoveData(my_list[212])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["Putts"]=RemoveData(my_list[213])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["FairwayHit"]=RemoveData(my_list[214])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["Ferrets"]=RemoveData(my_list[215])
+    PlayerScoreCard["ScoreCard"]["Holes"][13]["GreensInRegulation"]=RemoveData(my_list[216])
     #PlayerScoreCard ["ScoreCard"]["Holes"][13]["HandicapStokes"]=RemoveData()
     #Hole 14
     #PlayerScoreCard ["ScoreCard"]["Holes"][14]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][14]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["Par"]=RemoveData(my_list[233])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["StokeIndex"]=RemoveData(my_list[234])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["GrossScore"]=RemoveData(my_list[235])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["Points"]=RemoveData(my_list[236])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["Putts"]=RemoveData(my_list[237])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["FairwayHit"]=RemoveData(my_list[238])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["Ferrets"]=RemoveData(my_list[239])
-    PlayerScoreCard["ScoreCard"]["Holes"][14]["GreensInRegulation"]=RemoveData(my_list[230])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["Par"]=RemoveData(my_list[220])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["StokeIndex"]=RemoveData(my_list[221])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["GrossScore"]=RemoveData(my_list[222])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["Points"]=RemoveData(my_list[223])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["Putts"]=RemoveData(my_list[224])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["FairwayHit"]=RemoveData(my_list[225])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["Ferrets"]=RemoveData(my_list[226])
+    PlayerScoreCard["ScoreCard"]["Holes"][14]["GreensInRegulation"]=RemoveData(my_list[227])
     #PlayerScoreCard ["ScoreCard"]["Holes"][14]["HandicapStokes"]=RemoveData()
     #Hole 15
     #PlayerScoreCard ["ScoreCard"]["Holes"][15]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][15]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["Par"]=RemoveData(my_list[244])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["StokeIndex"]=RemoveData(my_list[245])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["GrossScore"]=RemoveData(my_list[246])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["Points"]=RemoveData(my_list[247])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["Putts"]=RemoveData(my_list[248])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["FairwayHit"]=RemoveData(my_list[249])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["Ferrets"]=RemoveData(my_list[240])
-    PlayerScoreCard["ScoreCard"]["Holes"][15]["GreensInRegulation"]=RemoveData(my_list[241])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["Par"]=RemoveData(my_list[231])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["StokeIndex"]=RemoveData(my_list[232])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["GrossScore"]=RemoveData(my_list[233])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["Points"]=RemoveData(my_list[234])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["Putts"]=RemoveData(my_list[235])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["FairwayHit"]=RemoveData(my_list[236])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["Ferrets"]=RemoveData(my_list[237])
+    PlayerScoreCard["ScoreCard"]["Holes"][15]["GreensInRegulation"]=RemoveData(my_list[238])
     #PlayerScoreCard ["ScoreCard"]["Holes"][15]["HandicapStokes"]=RemoveData()
     #Hole 16
     #PlayerScoreCard ["ScoreCard"]["Holes"][16]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][16]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["Par"]=RemoveData(my_list[255])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["StokeIndex"]=RemoveData(my_list[256])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["GrossScore"]=RemoveData(my_list[257])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["Points"]=RemoveData(my_list[258])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["Putts"]=RemoveData(my_list[259])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["FairwayHit"]=RemoveData(my_list[260])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["Ferrets"]=RemoveData(my_list[261])
-    PlayerScoreCard["ScoreCard"]["Holes"][16]["GreensInRegulation"]=RemoveData(my_list[262])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["Par"]=RemoveData(my_list[242])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["StokeIndex"]=RemoveData(my_list[243])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["GrossScore"]=RemoveData(my_list[244])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["Points"]=RemoveData(my_list[245])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["Putts"]=RemoveData(my_list[246])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["FairwayHit"]=RemoveData(my_list[247])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["Ferrets"]=RemoveData(my_list[248])
+    PlayerScoreCard["ScoreCard"]["Holes"][16]["GreensInRegulation"]=RemoveData(my_list[249])
     #PlayerScoreCard ["ScoreCard"]["Holes"][16]["HandicapStokes"]=RemoveData()
     #Hole 17
     #PlayerScoreCard ["ScoreCard"]["Holes"][17]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][17]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["Par"]=RemoveData(my_list[266])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["StokeIndex"]=RemoveData(my_list[267])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["GrossScore"]=RemoveData(my_list[268])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["Points"]=RemoveData(my_list[269])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["Putts"]=RemoveData(my_list[270])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["FairwayHit"]=RemoveData(my_list[271])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["Ferrets"]=RemoveData(my_list[272])
-    PlayerScoreCard["ScoreCard"]["Holes"][17]["GreensInRegulation"]=RemoveData(my_list[273])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["Par"]=RemoveData(my_list[253])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["StokeIndex"]=RemoveData(my_list[254])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["GrossScore"]=RemoveData(my_list[255])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["Points"]=RemoveData(my_list[256])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["Putts"]=RemoveData(my_list[257])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["FairwayHit"]=RemoveData(my_list[258])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["Ferrets"]=RemoveData(my_list[259])
+    PlayerScoreCard["ScoreCard"]["Holes"][17]["GreensInRegulation"]=RemoveData(my_list[260])
     #PlayerScoreCard ["ScoreCard"]["Holes"][17]["HandicapStokes"]=RemoveData()
     #Hole 18
     #PlayerScoreCard ["ScoreCard"]["Holes"][18]["HoleNumber"]=RemoveData()
     #PlayerScoreCard ["ScoreCard"]["Holes"][18]["Yardage"]=RemoveData()
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["Par"]=RemoveData(my_list[277])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["StokeIndex"]=RemoveData(my_list[278])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["GrossScore"]=RemoveData(my_list[279])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["Points"]=RemoveData(my_list[280])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["Putts"]=RemoveData(my_list[281])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["FairwayHit"]=RemoveData(my_list[282])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["Ferrets"]=RemoveData(my_list[283])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["GreensInRegulation"]=RemoveData(my_list[284])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["Par"]=RemoveData(my_list[264])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["StokeIndex"]=RemoveData(my_list[265])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["GrossScore"]=RemoveData(my_list[266])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["Points"]=RemoveData(my_list[267])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["Putts"]=RemoveData(my_list[268])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["FairwayHit"]=RemoveData(my_list[269])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["Ferrets"]=RemoveData(my_list[270])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["GreensInRegulation"]=RemoveData(my_list[280])
     #PlayerScoreCard ["ScoreCard"]["Holes"][18]["HandicapStokes"]=RemoveData()
         
         #Totals is createing the sum of the 18 holes 
@@ -415,7 +441,8 @@ def CreateHTMLOutput(JSONScoreCard):
 
     # print( TPar,TStroke_Index,TGross_Score,TPoints,TPutts,TFairways,TFerrets)
     #write out new HTML file
-    melbagefile = open(TargetHTMLFolder+'/'+ConvertFileName,"wb")
+    #NewHTMLFile = TargetHTMLFolder+'/'+ConvertFileName
+    melbagefile = open(TargetHTMLFolder+'/'+PlayerScoreCard["Properties"]["OrginalFile"]+'l',"wb")
 
     melbagefile.write( '<html>');
     melbagefile.write( '<head>');
@@ -509,7 +536,7 @@ for File in FileList:
     PopulateScoreCard(FileData,File)
     CreateHTMLOutput(PlayerScoreCard)
     CreatJSONOutput(PlayerScoreCard)
-    Converted(ConvertFileName)
+    Converted(File)
 
 
 
