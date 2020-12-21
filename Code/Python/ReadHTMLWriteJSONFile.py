@@ -128,7 +128,8 @@ def ReadInDataFile(HTMLFile):
     CleanList=[]
     # String to match in file.
     body_str = "<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD"
-    Bad_Data = "<col"
+    td_Tag = "<td"
+    div_Tag ="<div"
     #Counter in files for line with above string to match
     Marker =0
     ReadFile=RootFolder+'/'+HTMLFile
@@ -143,9 +144,11 @@ def ReadInDataFile(HTMLFile):
             Marker=i
     #Remove any lines which begin with <col from data 
     for GoodLine in ReduceList[Marker:]:
-        if Bad_Data not in GoodLine:
+        if td_Tag  in GoodLine:
             CleanList.append(GoodLine)
-   #Only return the data from the HTLM and not the classes and CSS details.
+        if div_Tag in GoodLine:
+            CleanList.append(GoodLine)
+     #Only return the data from the HTLM and not the classes and CSS details.
     return CleanList
 
 #To find in str contains a number value
@@ -423,7 +426,7 @@ def PopulateScoreCard(my_list,FileName):
     PlayerScoreCard["ScoreCard"]["Holes"][18]["Putts"]=RemoveData(my_list[268])
     PlayerScoreCard["ScoreCard"]["Holes"][18]["FairwayHit"]=RemoveData(my_list[269])
     PlayerScoreCard["ScoreCard"]["Holes"][18]["Ferrets"]=RemoveData(my_list[270])
-    PlayerScoreCard["ScoreCard"]["Holes"][18]["GreensInRegulation"]=RemoveData(my_list[280])
+    PlayerScoreCard["ScoreCard"]["Holes"][18]["GreensInRegulation"]=RemoveData(my_list[271])
     #PlayerScoreCard ["ScoreCard"]["Holes"][18]["HandicapStokes"]=RemoveData()
         
         #Totals is createing the sum of the 18 holes 
