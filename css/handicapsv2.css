@@ -1,0 +1,204 @@
+
+
+ 
+ .CR {
+    background-color:tomato;
+  }
+  /* Table used for Handicap  */
+  .SeasonStats1{
+    text-align: center;
+  }
+ .PageLayOut{
+   display: grid;
+   /* gap: 10px; */
+   /* grid-auto-rows: minmax(50px, auto); */
+   grid-template-columns: repeat(4,1fr);
+   /* border: 1px solid #000; */
+   border-collapse: collapse;
+   grid-gap: 0ch;
+
+ } 
+ .PageLayOut header{
+  text-align: center;
+  color: green;
+  grid-column: span 4;
+  border: 1px solid #000;
+  /* border-collapse: collapse; */
+ }
+ .PageLayOut p{
+  border: 1px solid #000;
+  /* border-collapse: collapse; */
+  text-align: center;
+  grid-gap: 0;
+ }
+ .PageLayOut table{
+  margin: 1em auto;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+ .PageLayOut caption{
+   font-size: 2em;
+ }
+ .PageLayOut thead th  {
+   column-span: all;
+   font-size: 2em;
+   color: crimson;
+   text-align: center;
+ }
+ .PageLayOut td {
+  padding: 4px 8px;
+  text-align: center;
+}
+ /* .PageLayOut tbody{
+  display: grid;
+  gap: 3opx;
+  grid-template-columns: minmax(4,1fr);
+ } */
+
+/* .PageLayOut table.Handicap{
+  margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+
+} */
+.Handicap td{
+  padding: 4px 8px;
+  text-align: center;
+
+}
+
+
+
+
+
+/* Handicap table  */
+
+ table.t1 {
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  .t1 td {
+    padding: 4px 8px;
+    text-align: center;
+  }
+  .t1 th {
+    padding: 4px 8px;
+    text-align: left;
+  }
+  .t1 thead th {
+    background: #4f81bd;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+  }
+  .t1 tr {
+    border-right: 1px solid #95b3d7;
+  }
+  .t1 tbody tr {
+    border-bottom: 1px solid #95b3d7;
+  }
+  .t1 tbody tr:nth-child(odd) {
+    background: #dbe5f0;
+  }
+  .t1 tbody th, .t1 tbody tr:nth-child(even) td {
+    border-right: 1px solid #95b3d7;
+  }
+  .t1 tfoot th {
+    background: #4f81bd;
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    color: yellow;
+  }
+  /* .t1 tr *:nth-child(2), .t1 tr *:nth-child(3), .t1 tr *:nth-child(4) {
+    text-align: center;
+  } */
+
+  .CourseRecord {
+    background-color: yellow;
+
+  }
+
+  /* Table used for MGA Personal Record */
+  table.MGA_PR {
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+  }
+  .MGA_PR td {
+    padding: 4px 8px;
+    text-align: left;
+  }
+  .MGA_PR th {
+    padding: 4px 8px;
+    text-align: center;
+  }
+  .MGA_PR thead th {
+    background: #4f81bd;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+  }
+  .MGA_PR tr {
+    border-right: 1px solid #95b3d7;
+  }
+  .MGA_PR tbody tr {
+    border-bottom: 1px solid #95b3d7;
+  }
+  .MGA_PR tbody tr:nth-child(odd) {
+    background: #dbe5f0;
+  }
+  .MGA_PR tbody th, .MGA_PR tbody tr:nth-child(even) td {
+    border-right: 1px solid #95b3d7;
+  }
+  .MGA_PR tfoot th {
+    background: #4f81bd;
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    color: yellow;
+  }
+  .MGA_PR tr *:nth-child(3), .MGA_PR tr *:nth-child(4) {
+    text-align: center;
+  }
+.SeasonStats{
+  display: flex; 
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border: 1px solid #000;
+  align-items: baseline;
+  /* width: 200px; */
+}
+.SeasonStats header {
+  text-align: center;
+  color: green;
+  /* grid-column: span 4; */
+  
+  /* align-items: center; */
+  
+  align-items: baseline;
+  flex-flow: row wrap;
+  
+  
+}
+.SeasonStats section {
+  color: blue;
+  /* flex-wrap: wrap; */
+  text-align: center;
+  flex-grow:  1;
+  flex : 1 1 300px
+
+}
+.bob{
+  color: rgb(255, 0, 4);
+  /* flex-wrap: wrap; */
+  text-align: center;
+  flex-grow:  1;
+  flex : 1 1 300px
+
+}

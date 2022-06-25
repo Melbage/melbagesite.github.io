@@ -1,0 +1,68 @@
+/* CSS file for Years stats                                             */
+/* Author: Paul Carter                                                */
+/* Created 24 June 2022                                               */
+
+
+.statsindex
+{	
+text-align: center;
+font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+}
+
+table.statsindex 
+{	
+    table-layout: auto;
+    border: solid 2px;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+}
+.statsindex td {
+    width:25% ;
+    align-content: center; 
+    /* height:"31"; */
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    font-weight: bold;
+    font-size: 2ex;
+    border: solid 1px;
+    /* border-style: inherit; */
+}
+.statsindex tr{
+    min-height: 10px;
+    border: solid 1px;
+width: 100%;
+}
+.statsindex th {
+    /* width:"100%" ;  */
+    column-span: all;
+    text-align: center; 
+    height: 31px;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+
+}
+.statsindex caption {
+    padding: 1px;
+    caption-side: bottom;
+}
+
+p{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+}
+h2{
+    text-align: center;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+}
+h3{
+    text-align: center;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+}
+h4{
+    text-align: center;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    height: 31px;
+}
