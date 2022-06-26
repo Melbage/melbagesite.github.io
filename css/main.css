@@ -2,7 +2,65 @@
 /* Author: Paul Carter                                                */
 /* Created 24 June 2022                                               */
 
-
+/* This is the default able used to display info. All tables should use this until they find a need to move away. Then the classID will match the page name*/
+table.t1 {
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    
+  }
+  .t1 td {
+    padding: 4px 8px;
+    text-align: center;
+  }
+  .t1 th {
+    padding: 4px 8px;
+    text-align: left;
+    border-right: 1px solid black;
+  }
+  .t1 thead th {
+    background: #4f81bd;
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+  }
+  .t1 tr {
+    /* border-right: 1px solid #95b3d7; */
+  }
+  .t1 tbody tr {
+    /* border-bottom: 1px solid #95b3d7; */
+  }
+  .t1 tbody{
+    border: 1px solid black;
+  }
+  .t1 tbody tr:nth-child(odd) {
+    background: #dbe5f0;
+  }
+  /* .t1 tbody th, .t1 tbody tr:nth-child(even) td {
+    border-right: 1px solid #95b3d7;
+  } */
+  .t1 tfoot th {
+    background: #4f81bd;
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    color: yellow;
+  }
+.t1 td:nth-child(3), .t1 td:nth-child(4) {
+    text-align: left;
+  } 
+  
+/* use clear line hen you want to breck up row in the ssme table  */
+.clearline td{
+    background-color: white;
+    padding-top: 10px;
+    border-left: #fff;
+    border-right: 1px #fff;
+    
+    height: 30px;
+}
 .statsindex
 {	
 text-align: center;
@@ -66,3 +124,39 @@ h4{
     font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
     height: 31px;
 }
+
+
+/* Used to format the handicaps.html page  */
+table.handicaps{
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    border: 1px solid black;  
+    padding: 1px;
+    text-align: center;
+}
+.handicaps thead ,th {
+    background: #4f81bd;
+    text-transform: capitalize;
+    /* text-align: left; */
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+  }
+
+/* make sure that players name is algined to :left */
+.handicaps tbody td:nth-child(1) {
+    text-align: left;
+    padding: 5px;
+    
+  }
+.handicaps tbody tr:nth-child(odd) {
+    background: #dbe5f0;
+  }
+    
+
+
+/* .Handicaps caption {
+    padding: 1px;
+    caption-side: bottom;
+} */
