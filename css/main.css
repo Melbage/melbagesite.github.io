@@ -160,3 +160,39 @@ table.handicaps{
     padding: 1px;
     caption-side: bottom;
 } */
+
+/* Used to format the handicaps.html page  */
+table.tourstats{
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    border: 1px solid black;  
+    padding: 1px;
+    text-align: center;
+}
+.tourstats thead ,th {
+    background: #4f81bd;
+    text-transform: capitalize;
+    /* text-align: left; */
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+    border-right: 1px solid black;
+  }
+
+/* make sure that players name is algined to :left */
+.tourstats tbody td:nth-child(2) {
+    text-align: left;
+    padding: 5px;
+    
+  }
+.tourstats tbody tr:nth-child(odd) {
+    background: #dbe5f0;
+  }
+.tourstats tfoot th {
+    background: #4f81bd;
+    text-align: left;
+    font-weight: normal;
+    font-size: 14px;
+    color: yellow;
+  }
