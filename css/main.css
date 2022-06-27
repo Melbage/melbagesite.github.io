@@ -196,3 +196,79 @@ table.tourstats{
     font-size: 14px;
     color: yellow;
   }
+article{
+    align-content: center;
+    text-align: center;
+}
+header{
+    text-align: center;
+    
+}
+table.t2{
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid black;  
+    padding: 1px;
+    text-align: center;
+    /* text-orientation: sideways-left */
+}
+.t2 tbody td {
+    border-right: 1px solid;
+    padding: 2px;
+}
+.t2 tbody tr {
+    border-bottom: 1px solid;
+    padding: 2px;
+}
+.t2 tbody tr:nth-child(n+8) td:nth-child(2){
+    border-left: 2px solid black;
+    background: #FFFF99;
+    font-weight: bold;
+  }
+.t2 tbody tr:nth-child(n+8) td:nth-child(3){
+    border-right: 2px solid black;
+    background: #FFFF99;
+    color :red;
+    font-weight: bold;
+  }
+  .t2 tbody tr:nth-child(n+8) td:nth-child(4){
+    border-right: 2px solid black;
+    background: lightskyblue;
+    /* color :red;
+    font-weight: bold; */
+  }
+  .t2 tbody tr:nth-child(n+8) td:nth-child(9){
+    border-right: 2px solid black;
+    background: lightskyblue;
+    /* color :red;
+    font-weight: bold; */
+  }
+  .t2 tbody  td:nth-child(1){
+    /* border-right: 2px solid black;
+    background: lightskyblue; */
+    /* color :red; */
+    font-weight: bold;
+  }
+  .t2 tbody tr:nth-child(5) {
+    border-top: 3px solid black;
+    border-bottom: 0px;
+    font-weight: bold; 
+  }
+  .t2 tbody tr:nth-child(7) td:nth-child(n+1){
+    border-top: 3px solid black;
+    /* line-height: 50px; */
+    border: 3px solid black;
+    transform: rotate(-90deg) translate(-5%);
+    /* text-align: left; */
+    /* padding-block: 1px; */
+    font-weight: bold;
+    /* margin-bottom: 0em; */
+    /* white-space: nowrap; */
+    padding: 5% 0;
+  /* height: 0; */
+  align-content: center;
+  margin: 5px;
+  /* transform-origin: top left; */
+    
+  }
