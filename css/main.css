@@ -204,58 +204,67 @@ header{
     text-align: center;
     
 }
-table.t2{
+/* Scorecard table formating */
+table.scorecard{
     margin: 1em auto;
     border-collapse: collapse;
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: Arial, Helvetica, sans-serif;
     border: 3px solid black;  
     padding: 1px;
     text-align: center;
     /* text-orientation: sideways-left */
 }
-.t2 tbody td {
+.scorecard tbody td {
     border-right: 1px solid;
     padding: 2px;
 }
-.t2 tbody tr {
+.scorecard tbody tr {
     border-bottom: 1px solid;
     padding: 2px;
 }
-.t2 tbody tr:nth-child(n+8) td:nth-child(2){
+/* From the 8th line in table colour the Par column */
+.scorecard tbody tr:nth-child(n+8) td:nth-child(2){
     border-left: 2px solid black;
     background: #FFFF99;
     font-weight: bold;
   }
-.t2 tbody tr:nth-child(n+8) td:nth-child(3){
+  /* From the 8th line in table colour the Stoke index column  */
+.scorecard tbody tr:nth-child(n+8) td:nth-child(3){
     border-right: 2px solid black;
     background: #FFFF99;
     color :red;
     font-weight: bold;
   }
-  .t2 tbody tr:nth-child(n+8) td:nth-child(4){
+  /* From the 8th line in table colour the point column */
+  .scorecard tbody tr:nth-child(n+8) td:nth-child(4){
     border-right: 2px solid black;
-    background: lightskyblue;
+    background: #CCFFFF;
     /* color :red;
     font-weight: bold; */
   }
-  .t2 tbody tr:nth-child(n+8) td:nth-child(9){
+  /* From the 8th line in table colour the Green in Reg column */
+  .scorecard tbody tr:nth-child(n+8) td:nth-child(9){
     border-right: 2px solid black;
-    background: lightskyblue;
+    background: #CCFFFF;
     /* color :red;
     font-weight: bold; */
   }
-  .t2 tbody  td:nth-child(1){
+  /* make the 1st  column bold */
+  .scorecard tbody  td:nth-child(1){
     /* border-right: 2px solid black;
     background: lightskyblue; */
     /* color :red; */
     font-weight: bold;
   }
-  .t2 tbody tr:nth-child(5) {
+  /* make the heading for game stats in bold */
+  .scorecard tbody tr:nth-child(5) {
     border-top: 3px solid black;
     border-bottom: 0px;
     font-weight: bold; 
   }
-  .t2 tbody tr:nth-child(7) td:nth-child(n+1){
+  /* make the header for score card bold and text rotated */
+  .scorecard tbody tr:nth-child(7) td:nth-child(n+1){
     border-top: 3px solid black;
     /* line-height: 50px; */
     border: 3px solid black;
@@ -270,5 +279,20 @@ table.t2{
   align-content: center;
   margin: 5px;
   /* transform-origin: top left; */
+  }
+  /* last line in table which has the totals */
+  .scorecard tbody tr:nth-last-child(1) {
+    font-weight: bold;
+    border-top: double 3px black;
+
+  }
     
+
+  /* players name */
+  .t2 Caption{
+    color:blue;
+    text-align: left;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+
   }
