@@ -296,3 +296,53 @@ table.scorecard{
     font-family: Arial, Helvetica, sans-serif;
 
   }
+/* Formatting for months.html table */
+table.months {
+  margin: 1em auto;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  
+}
+.months td {
+  padding: 4px 8px;
+  text-align: center;
+}
+.months th {
+  padding: 4px 8px;
+  text-align: left;
+  border-right: 1px solid black;
+}
+.months thead th {
+  background: #4f81bd;
+  /* text-transform: capitalize; */
+  text-align: left;
+  font-size: 15px;
+  color: #fff;
+  transform: rotate(-90deg) translate(-5%);
+}
+.months tr {
+  /* border-right: 1px solid #95b3d7; */
+}
+.months tbody tr {
+  /* border-bottom: 1px solid #95b3d7; */
+}
+.months tbody{
+  border: 1px solid black;
+}
+.months tbody tr:nth-child(odd) {
+  background: #dbe5f0;
+}
+/* .t1 tbody th, .t1 tbody tr:nth-child(even) td {
+  border-right: 1px solid #95b3d7;
+} */
+.months tfoot th {
+  background: #4f81bd;
+  text-align: left;
+  font-weight: normal;
+  font-size: 14px;
+  color: yellow;
+}
+.months td:nth-child(3), .t1 td:nth-child(4) {
+  text-align: left;
+} 
