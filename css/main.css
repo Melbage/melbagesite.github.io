@@ -348,7 +348,7 @@ table.months {
 } 
 
 main {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 article {
@@ -367,21 +367,31 @@ article {
   }
   .Honourboard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 1rem;
+    /* background-image: url(../images/honourboardWood.png) */
   }
 }
   
 .Honourboard {
   font-family: Avenir, Roboto, Helvetica, san-serif; 
-  font-size: 80%;
+  font-size: 100%;
+  color:gold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  
 }
 .honour_events {
   display: flex;
   flex-flow: column;
-  border:  1px solid black;
-  border-radius: 1rem;
+  border:  2px solid black;
+  /* border-radius: 1rem; */
   padding: 2rem;
+  background-image: url(../images/honourboardWoodGray.png);
+  background-size:100%;
+  back  ;
+  font-family:Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+  font-size: large;
+  /* color:black */
 }
 .honour_events > h1 {
   margin: 1rem 1rem 0;
@@ -395,8 +405,12 @@ article {
 .honour_events > img {
   order: -1;
   align-self: center;
+  /* background-image: url(../images/honourboardWood.png); */
+  
+  /* size-adjust: 100%; */
+
 }
-.honour_events > button {
+/* .honour_events > button {
   margin-top: auto; 
   background: teal;
   color: white;
@@ -404,4 +418,57 @@ article {
   border: none;
   border-radius: 1rem;
   font-size: 1.2rem;
+} */
+table .honour_events{
+  margin: 1em auto;
+  border-collapse: collapse;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family:Avenir, Roboto, Helvetica, san-serif;  
+  border: 1px solid black;
+  
 }
+.honour_events > td {
+  padding: 4px 8px;
+  text-align: center;
+}
+.honour_events >table ,th {
+  padding: 2px 8px;
+  text-align: left;
+  font-size: 20px;
+  /* border-right: 1px solid black; */
+}
+.honour_events thead, th {
+  /* background: #4f81bd; */
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 20px;
+  background: none;
+  border-right: none;
+  /* color: #fff; */
+}
+
+.honour_events caption{
+  text-transform: uppercase;
+}
+.honour_events tbody{
+  border: 1px solid black;
+  color: black ;
+  text-shadow: none;
+  font-weight: bold;
+}
+/* .honour_events tbody tr:nth-child(odd) {
+  background: #dbe5f0;
+} */
+/* .t1 tbody th, .t1 tbody tr:nth-child(even) td {
+  border-right: 1px solid #95b3d7;
+} */
+/* .honour_events tfoot th {
+  background: #4f81bd;
+  text-align: left;
+  font-weight: normal;
+  font-size: 14px;
+  color: yellow;
+} */
+.honour_events td:nth-child(3), .honour_events td:nth-child(2) {
+  text-align: left;
+} 
