@@ -383,12 +383,19 @@ article {
 .honour_events {
   display: flex;
   flex-flow: column;
-  border:  2px solid black;
-  /* border-radius: 1rem; */
+  border:  10px solid #2e2701;
+  border-radius: 1rem;
   padding: 2rem;
-  background-image: url(../images/honourboardWoodGray.png);
-  background-size:100%;
-  back  ;
+  /* background-image: url(../images/honourboardWoodGray.png); */
+  background-image: url(../images/cartboard.jpg); 
+  /* repeat center center; */
+  /* background-color: brown; */
+  /* background-color: #e5e5f7; */
+    /* opacity: 0.2; */
+/* background-image:  repeating-radial-gradient( circle at 0 0, transparent 0%, #473b02 20px ), repeating-linear-gradient( #473b01, tan ); */
+/* background-image:  repeating-radial-gradient( circle at 0 0, transparent 0%, black 5px ), repeating-linear-gradient(black, silver); */
+  /* background-size:100%; */
+  /* back  ; */
   font-family:Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
   font-size: large;
   /* color:black */
@@ -452,8 +459,9 @@ table .honour_events{
 }
 .honour_events tbody{
   border: 1px solid black;
-  color: black ;
-  text-shadow: none;
+  color: gold ;
+  /* text-shadow: black 1px; */
+  /* text-shadow: none; */
   font-weight: bold;
 }
 /* .honour_events tbody tr:nth-child(odd) {
