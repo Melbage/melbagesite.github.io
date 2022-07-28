@@ -459,9 +459,9 @@ table .honour_events{
 }
 .honour_events tbody{
   border: 1px solid black;
-  color: gold ;
+  color: black ;
   /* text-shadow: black 1px; */
-  /* text-shadow: none; */
+  text-shadow: none;
   font-weight: bold;
 }
 /* .honour_events tbody tr:nth-child(odd) {
