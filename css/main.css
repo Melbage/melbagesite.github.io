@@ -312,6 +312,7 @@ table.months {
   padding: 4px 8px;
   text-align: left;
   border-right: 1px solid black;
+  background: #4f81bd;
 }
 .months thead th {
   background: #4f81bd;
