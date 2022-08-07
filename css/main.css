@@ -144,6 +144,15 @@ table.handicaps{
     padding: 5px;
   }
 
+tfoot.handicaps   {
+    background: #4f81bd;
+    text-transform: capitalize;
+    /* text-align: left; */
+    font-size: 15px;
+    color: #fff;
+    padding: 5px;
+  }
+
 /* make sure that players name is algined to :left */
 .handicaps tbody td:nth-child(1) {
     text-align: left;
