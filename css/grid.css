@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    padding: 1rem;
+  }
+  
+  /* Just for the fallback layout */
+  
+  main {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  article {
+    margin: 1rem 0;
+  }
+  header {
+    font-family: Avenir, Roboto, Helvetica, san-serif; 
+    /* font-size: 120%; */
+    text-align: center;
+  }
+  
+  /* Now lets do a Grid-based layout */
+  
+  @supports (display: grid) {
+    main { 
+      max-width: 10000px;
+      margin: 0;
+    }
+    article {
+      margin: 0;
+    }
+    .stats-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      /* grid-template-columns: ; */
+      grid-gap: 1rem;
+    }
+  }
+    
+  .stats-layout {
+    font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    font-size: 80%;
+  }
+  .stats-item {
+    display: flex;
+    flex-flow: column;
+    border:  1px solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+  .stats-item > h1 {
+    /* margin: 1rem 1rem 0;
+    
+    background: teal;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;*/
+    font-size: 1.2rem;
+    /* text-align: center;  */
+  }
+  .stats-item > ul {
+    margin: 0 0 1rem;
+   
+  }
+  
+  .stats-item li{
+    list-style: none;
+    font-size: 1.2rem;
+    padding: 2%;
+  }
+  .stats-item h8{
+    font-size: 75%;
+  }
+/* set up a change in backgroup for whole line item rather that just text from <a> tag  */
+  .stats-item li:hover{
+    background-color: #4f81bd;
+    color:white;
+  }
+  /* Remove the underline link  this is so I can set up a hover to change the background and colour*/
+  .stats-item a{
+    text-decoration: none
+  }
+  .stats-item a:hover{
+    /* background-color: yellow; */
+    color:white;
+  }
+  .stats-item > p {
+    margin: 0.25em 1rem 1rem;
+  }
+  /* .stats-item > img {
+    order: -1;
+    align-self: center;
+  } */
+  /* .stats-item > button {
+    margin-top: auto; 
+    background: teal;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem; */
+  }
+  .header header img {
+    float: left;
+    width: 100px;
+    height: 150px;
+    background: #555;
+    margin-left: 100px;
+  }
+  
+  .header  h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+    height: 150px;
+  }
+body {
+	/* font-family: 'Open Sans', sans-serif;
+	background: #2c3e50; */
+    /* width: 80%; */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+nav{
+	position: relative;
+	/* margin: 270px auto 0; */
+	/* width: 590px; */
+	height: 50px;
+	background: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+}
+nav a{
+	font-size: 15px;
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	line-height: 50px;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	text-align: center;
+}
+nav .animation{
+	position: absolute;
+	height: 100%;
+	/* height: 5px; */
+	top: 0;
+	/* bottom: 0; */
+	z-index: 0;
+	background: #1abc9c;
+	border-radius: 8px;
+	transition: all .5s ease 0s;
+}
+nav a:nth-child(1){
+	width: 100px;
+}
+nav .start-home, a:nth-child(1):hover~.animation{
+	width: 100px;
+	left: 0;
+}
+nav a:nth-child(2){
+	width: 110px;
+}
+nav a:nth-child(2):hover~.animation{
+	width: 110px;
+	left: 100px;
+}
+nav a:nth-child(3){
+	width: 100px;
+}
+nav a:nth-child(3):hover~.animation{
+	width: 100px;
+	left: 210px;
+}
+nav a:nth-child(4){
+	width: 160px;
+}
+nav a:nth-child(4):hover~.animation{
+	width: 160px;
+	left: 310px;
+}
+nav a:nth-child(5){
+	width: 120px;
+}
+nav a:nth-child(5):hover~.animation{
+	width: 120px;
+	left: 470px;
+}
+nav ul li{
+    dec;
+}
+
+.logo{
+    float: left;
+}
