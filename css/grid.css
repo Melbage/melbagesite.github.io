@@ -36,6 +36,11 @@
       /* grid-template-columns: ; */
       grid-gap: 1rem;
     }
+    .container{
+      display: grid;
+      grid-template-columns:  minmax(300px, 1fr));
+      /* grid-template-columns: ; */
+      grid-gap: 1rem;
   }
     
   .stats-layout {
@@ -48,6 +53,7 @@
     border:  1px solid black;
     border-radius: 1rem;
     padding: 2rem;
+    /* grid-area: asd; */
   }
   .stats-item > h1 {
     /* margin: 1rem 1rem 0;
@@ -82,7 +88,7 @@
   .stats-item a{
     text-decoration: none
   }
-  .stats-item a:hover{
+  .stats-item>a:hover{
     /* background-color: yellow; */
     color:white;
   }
@@ -100,8 +106,8 @@
     padding: 0.5rem;
     border: none;
     border-radius: 1rem;
-    font-size: 1.2rem; */
-  }
+    font-size: 1.2rem; 
+  }*/
   .header header img {
     float: left;
     width: 100px;
@@ -190,10 +196,118 @@ nav a:nth-child(5):hover~.animation{
 	width: 120px;
 	left: 470px;
 }
-nav ul li{
+/* nav ul li{
     dec;
-}
+} */
 
 .logo{
-    float: left;
+    grid-area: Logo;
+    position: relative;
+    object-fit:scale-down;
+    /* float: left;
+    width:248px;*/
+    height:248px; 
+}
+
+ /* table in grid for archive history of stats  */
+ tr td{
+     text-align: center;
+     font-size: 1.5rem;
+ }
+ th{
+     font-size: 1rem;
+ }
+ th:first-child {
+   text-align: left;
+ }
+td> a:hover{
+    background: #4f81bd;
+    color:#da9f1b;
+}
+td:hover{
+    background: #4f81bd;
+}
+
+/* front page of the web site  */
+/* .container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+} */
+.frontPage{
+  display: grid;
+  grid-template-areas: 
+  "Logo fphd" 
+  "News News"
+  "asd Melbage";
+
+  grid-template-columns: repeat(300px, minmax(300px, 1fr));
+  grid-template-rows: 250px;
+  /* grid-template-columns: ; */
+  grid-gap: 1rem;
+  font-family: Tahoma, Geneva, Verdana, sans-serif,'Segoe UI';
+    font-size: 100%
+   
+}
+ /* user flex box to control the sizing of the screen for the main body of the front page  */
+.fpmain{
+  /* display: flex; */
+
+}
+/* frint page header grid container  */
+.fphd{
+  grid-area: fphd;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  
+}
+ /* side bar menu option for front page  */
+.asd{
+  grid-area: asd;
+}
+.asd>ul{
+  list-style: none;
+  margin-left: 0%;
+  padding-inline-start: 0%;
+}
+.asd>li{
+  margin-left: 0%;
+}
+.asd li:hover{
+  background-color: #4f81bd;
+  color:white;
+}
+.asd a{
+  text-decoration: none
+}
+.asd a:hover{
+  color:white;
+}
+/* front page news page  */
+.News{
+  grid-area: News;
+  text-align: center;
+  color: red;
+  
+}
+/* melbage information  */
+.Melbage{
+  grid-area: Melbage;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+}
+/* @media(min-witdh:400px){
+  .container{
+    flex-direction: row;
+  }
+} */
+.footer{
+  background-color: #4f81bd;
+  text-align: center;
+  color: white;
+}
+.footer a{
+  text-decoration: none;
+  color: white;
 }
