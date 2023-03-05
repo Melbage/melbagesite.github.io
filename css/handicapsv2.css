@@ -207,3 +207,13 @@
   flex : 1 1 300px
 
 }
+/* make the personal table for the player be :blank */
+.performancePutts {
+  display: none;
+}
+.performanceStokes {
+  display: none;
+}
+.performanceScore {
+  display: none;
+}
