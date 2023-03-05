@@ -43,18 +43,18 @@ function DisplayRows(DisplayType) {
 //         // do stuff
 //     }
 // );
-function UpdateDisplayType(DisplayIt,DontDisplayit1, DontDisplayit2 ) {
+function UpdateDisplayType(DisplayIt, DonotDisplayit1, DonotDisplayit2 ) {
     Array.from(document.getElementsByClassName(DisplayIt)).forEach(
         function(el){
             el.style.display = 'table-row'
         }
         );
-    Array.from(document.getElementsByClassName(DontDisplayit1)).forEach(
+    Array.from(document.getElementsByClassName(DonotDisplayit1)).forEach(
         function(el){
             el.style.display = 'none'
         }
         );
-    Array.from(document.getElementsByClassName(DontDisplayit2)).forEach(
+    Array.from(document.getElementsByClassName(DonotDisplayit2)).forEach(
         function(el){
             el.style.display = 'none'
         }
