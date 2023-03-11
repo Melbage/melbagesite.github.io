@@ -196,15 +196,35 @@ table.tourstats{
     
   }
 .tourstats tbody tr:nth-child(odd) {
-    background: #dbe5f0;
-  }
+    /* background: #dbe5f0; */
+  } 
+
 .tourstats tfoot th {
     background: #4f81bd;
     text-align: left;
     font-weight: normal;
     font-size: 14px;
-    color: yellow;
+    color: #FFDB58;
   }
+/* Colours used on TourStats to show if a play has Qualified. Different colours to keep with row colours 
+ *class are as follows RowDark,RowLight,QualifiedDark and QualifiedLight set in the table row 
+*/
+tr.RowDark{
+  background: #bad9fb;
+}
+tr.RowLight{
+  background: #f2f7fc;
+}
+tr.QualifiedDark{
+  background-color: #FFDB58;
+
+  /* background-color: #fdfd00;  #FFDB58 #FFBF00*/
+}
+tr.QualifiedLight{
+  background-color: lemonchiffon;
+  background-color: #fbfbbf;
+}
+
 article{
     align-content: center;
     text-align: center;
