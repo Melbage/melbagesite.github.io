@@ -43,22 +43,21 @@ function DisplayRows(DisplayType) {
 //         // do stuff
 //     }
 // );
-function UpdateDisplayType(DisplayIt, DonotDisplayit1, DonotDisplayit2 ) {
+function UpdateDisplayType(DisplayIt ) {
+    const MonthsClass = ["performanceScore202301","performanceScore202302","performanceScore202303","performanceScore202204","performanceScore202205","performanceScore202206","performanceScore202207","performanceScore202208","performanceScore202209","performanceScore202210","performanceScore202211","performanceScore202211", "performanceScore202212"];
+    MonthsClass.forEach(
+        function(cls){
+            console.log(cls)
+            Array.from(document.getElementsByClassName(cls)).forEach(
+                function(el){
+                el.style.display = 'none'
+            });
+        });
+    
     Array.from(document.getElementsByClassName(DisplayIt)).forEach(
         function(el){
             el.style.display = 'table-row'
-        }
-        );
-    Array.from(document.getElementsByClassName(DonotDisplayit1)).forEach(
-        function(el){
-            el.style.display = 'none'
-        }
-        );
-    Array.from(document.getElementsByClassName(DonotDisplayit2)).forEach(
-        function(el){
-            el.style.display = 'none'
-        }
-        );
+        });
     };
 
 
