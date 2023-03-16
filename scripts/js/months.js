@@ -1,6 +1,27 @@
-// $('.performanceScore').click(function() {
-//     $(this).nextUntil('.performanceScore').toggle("slow");       
+// Bunch of function to help display the information on  months page
+
+// function CheckURL() {
+//     var selectedMonth = GetURLParameter("selectedMonth");
+//     if (selectedMonth) {
+//         DisplayRows(selectedMonth); 
+//         console.log(selectedMonth)
+//     }
 // });
+
+// function GetURLParameter(sParam)
+// {
+//     var sPageURL = window.location.search.substring(1);
+//     console.log(sPageURL)
+//     var sURLVariables = sPageURL.split('&');
+//     for (var i = 0; i < sURLVariables.length; i++)
+//     {
+//         var sParameterName = sURLVariables[i].split('=');
+//         if (sParameterName[0] == sParam)
+//         {
+//             return sParameterName[1];
+//         }
+//     }
+// }
 
 function DisplayRows(DisplayType) {
     // don't display any rows
