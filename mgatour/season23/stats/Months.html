@@ -3,17 +3,18 @@
 
 <head>
 <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="./../../../css/handicapsv2.css"> 
-<script type="text/javascript" src="./../../../scripts/js/months.js"> </script>
+<script type="text/javascript" src="./../../../scripts/js/months.js" defer> </script>
 <title>Months</title>
 </head>
 <body onload="UpdateDisplayType('performanceScore202204')">
     <!-- <p>Click the button to sort the table alphabetically, by name:</p>
 <p><button onclick="sortTable()">Sort</button></p> -->
-<table id="Months" class="t1"> <caption> <h1><strong>Season 23 Monthly Record </strong></h1> <p> Choose a static's to view: 
+<table id="Months" class="months"> <caption> <h1><strong>Season 23 Monthly Record </strong></h1> 
+    <!-- <p> Choose a static's to view: 
     <button type="button" onclick="UpdateDisplayType('performanceScore202204')">April </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202205')">May </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202206')">June </button> 
-    <button type="button" onclick="UpdateDisplayType('performanceScore202207')">July </button> 
+    <button type="button" onclick="UpdateDisplayType('performanceScore202206')">July </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202208')">August </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202209')">September </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202210')">October </button> 
@@ -21,13 +22,75 @@
     <button type="button" onclick="UpdateDisplayType('performanceScore202212')">December </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202301')">January </button> 
     <button type="button" onclick="UpdateDisplayType('performanceScore202302')">February </button> 
-    <button type="button" onclick="UpdateDisplayType('performanceScore202303')">March </button> 
+    <button type="button" onclick="UpdateDisplayType('performanceScore202303')">March </button>  -->
    
+    <!-- <select name="Month-select" id="Month-select">
+        <option value="performanceScore202204">choose a Month</option>
+        <option value="performanceScore202204">April</option>
+        <option value="performanceScore202205">May</option>
+        <option value="performanceScore202206">June</option>
+        <option value="performanceScore202207">July</option>
+        <option value="performanceScore202208">August</option>
+        <option value="performanceScore202209">September</option>
+        <option value="performanceScore202210">October</option>
+        <option value="performanceScore202211">November</option>
+        <option value="performanceScore202212">December</option>
+        <option value="performanceScore202301">January</option>
+        <option value="performanceScore202302">February</option>
+        <option value="performanceScore202303">March</option> -->
+    
+    </select>
 <thead> 
-        <tr class='performanceScore'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Gross <br>Score</th> <th>Points</th> <th>Putts</th> <th>Fairways</th> <th>Ferrets</th> <th>Green<br>Regulation</th> </tr> 
-        <tr class='Apr'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Gross <br>Score</th> <th>Points</th> <th>Putts</th> <th>Fairways</th> <th>Ferrets</th> <th>Green<br>Regulation</th> </tr> 
+        <!-- <tr class='performanceScore'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Gross <br>Score</th> <th>Points</th> <th>Putts</th> <th>Fairways</th> <th>Ferrets</th> <th>Green<br>Regulation</th> </tr>  -->
+        <tr class='performanceScore'>
+            <th class="monthsMonth" rowspan="2">
+                <select name="Month-select" id="Month-select">
+                    <option value="performanceScore202207">choose a Month</option>
+                    <option value="performanceScore202204">April</option>
+                    <option value="performanceScore202205">May</option>
+                    <option value="performanceScore202206">June</option>
+                    <option value="performanceScore202207">July</option>
+                    <option value="performanceScore202208">August</option>
+                    <option value="performanceScore202209">September</option>
+                    <option value="performanceScore202210">October</option>
+                    <option value="performanceScore202211">November</option>
+                    <option value="performanceScore202212">December</option>
+                    <option value="performanceScore202301">January</option>
+                    <option value="performanceScore202302">February</option>
+                    <option value="performanceScore202303">March</option>
+                
+                </select>
+            </th>
+            <th class="monthsPlacement" rowspan="2" >Placement</th>
+            <th class="monthsPlayer" rowspan="2">Player</th>
+            <th class="monthsCourse">Course</th>
+            <th class="monthsMoney">Prize</th>
+            <th class="monthsHandicap" colspan="2">Handicap<br>Start End</th>
+            <!-- <th class="monthsHandicap">End<br>Handicap</th> -->
+            <th class="monthsGross"  rowspan="2">Gross <br>Score</th>
+            <th class="monthsPoints" rowspan="2">Points</th>
+            <th class="monthsPutts" rowspan="2">Putts</th>
+            <th class="monthsFairways" rowspan="2">Fairways</th>
+            <th class="monthsFerrets" rowspan="2">Ferrets</th>
+            <th class="monthsGreens" rowspan="2">Green<br>Regulation</th>
+        </tr>
+        <!-- <tr class='performanceScore'> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >[Link to Card]</th> -->
+            <!-- <th >Money</th> -->
+            <!-- <th >Start</th> -->
+            <!-- <th >End</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            <!-- <th >not needed as rowspan is set</th> -->
+            
+        <!-- </tr> -->
         <!-- <tr class='performanceStokes'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Hole in<br>One</th><th>Albatross</th><th>Eagle</th><th>Birdie</th><th>Par</th><th>Bogey</th><th>Double<br>Bogey</th><th>Double<br>Bogey Plus</th> </tr>  -->
-        <tr class='performancePutts'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th> 0 Putts</th> <th> 1 Putts</th> <th> 2 Putts</th> <th> 3 Putts</th> <th> 3+ Putts</th> <th> Total <br>Putts</th> </tr> </thead> <tfoot> <tr> <th colspan="100%">Course Records will highlighted in yellow</th> </tr> </tfoot>
+        <!-- <tr class='performancePutts'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th> 0 Putts</th> <th> 1 Putts</th> <th> 2 Putts</th> <th> 3 Putts</th> <th> 3+ Putts</th> <th> Total <br>Putts</th> </tr> </thead> <tfoot> <tr> <th colspan="100%">Course Records will highlighted in yellow</th> </tr> </tfoot> -->
 <tbody>
 
     <tr class='performanceScore202206'><td>01-Jun-22</td><td>1<sup>st</sup>of 3</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20220601AM-RT'>Malden</a></td><td>&#163;7500</td><td>10.6</td><td>10.7</td><td>89</td><td>30</td><td>35</td><td>6</td><td>2</td><td>10</td></tr>

@@ -71,52 +71,113 @@
 
 
 
-/* Handicap table  */
+/* Months table 
+ * creating header information for each table  */
 
- table.t1 {
+ table.months {
     margin: 1em auto;
     border-collapse: collapse;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid black;
     
   }
-  .t1 td {
-    padding: 4px 8px;
+  
+  .months td {
+    padding: 4px 4px;
     text-align: center;
   }
-  .t1 th {
+/* Setting up the the table heaader for each column */
+.months thead{
+  height: 100px;
+}
+
+th.monthsMonth{
+  /* position:absolute;  */
+    /* bottom:0 */
+    height: 100px;
+}
+
+th.monthsPlacement {
+  transform: rotate(270deg);
+}
+th.monthsPlayer{}
+th.monthsCourse{
+  /* position:absolute;  */
+    /* bottom:0 */
+}
+th.monthsMoney{}
+th.monthsHandicap{}
+th.monthsHandicap{}
+th.monthsGross{
+  transform: rotate(270deg);
+}
+th.monthsPoints{
+  transform: rotate(270deg);
+}
+th.monthsPutts{
+  transform: rotate(270deg);
+}
+th.monthsFairways{
+  transform: rotate(270deg);
+}
+th.monthsFerrets{
+  transform: rotate(270deg);
+}
+th.monthsGreens{
+  transform: rotate(270deg);
+  
+} 
+
+
+ th.months {
     padding: 4px 8px;
     text-align: left;
     border-right: 1px solid black;
+    background: #4f81bd;
+    /* left: calc(50% - .5rem); */
+line-height: 1;
+/* padding-top: .5rem; */
+position: relative;
+/* -webkit-transform: rotate(90deg); */ */
+/* transform: rotate(270deg); */
+height:95px;
+writing-mode: vertical-rl;
   }
-  .t1 thead th {
+  /* .months thead th { */
+  .months thead  {
+    
     background: #4f81bd;
     text-transform: capitalize;
     text-align: left;
     font-size: 15px;
     color: #fff;
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+    
+ 
   }
-  .t1 tr {
+  .months.tr  {
     /* border-right: 1px solid #95b3d7; */
   }
-  .t1 tbody tr {
+  .months tbody tr {
     /* border-bottom: 1px solid #95b3d7; */
   }
-  .t1 tbody{
+  .months tbody{
     border: 1px solid black;
   }
-  .t1 tbody tr:nth-child(odd) {
+  .months tbody tr:nth-child(odd) {
     background: #dbe5f0;
   }
-  .t1 tbody th, .t1 tbody tr:nth-child(even) td {
+  .months tbody th, .months tbody tr:nth-child(even) td {
     /* border-right: 1px solid #95b3d7; */
   }
-  .t1 tfoot th {
+  .Months tfoot th {
     background: #4f81bd;
     text-align: left;
     font-weight: normal;
     font-size: 14px;
     color: yellow;
+    height: 50px;
   }
   /* .t1 tr *:nth-child(2), .t1 tr *:nth-child(3), .t1 tr *:nth-child(4) {
     text-align: center;
@@ -208,12 +269,15 @@
 
 }
 /* make the personal table for the player be :blank */
-.performancePutts {
+/* .performancePutts {
   display: none;
 }
 .performanceStokes {
   display: none;
-}
+} */
 .performanceScore {
-  display: none;
+  display: table-row;
+}
+tr.performanceScore {
+  height: 95px;
 }
