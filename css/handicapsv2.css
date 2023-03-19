@@ -168,6 +168,17 @@ writing-mode: vertical-rl;
   .months tbody tr:nth-child(odd) {
     background: #dbe5f0;
   }
+/* colour change for majors */
+
+.major tbody tr:nth-child(odd) {
+  background: yellow
+}
+.major{
+  background:yellow;
+}
+.major tr:nth-child(even)  {
+  background: lightyellow
+}
   .months tbody th, .months tbody tr:nth-child(even) td {
     /* border-right: 1px solid #95b3d7; */
   }
