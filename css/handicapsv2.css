@@ -190,9 +190,7 @@ writing-mode: vertical-rl;
     color: yellow;
     height: 50px;
   }
-  /* .t1 tr *:nth-child(2), .t1 tr *:nth-child(3), .t1 tr *:nth-child(4) {
-    text-align: center;
-  } */
+
 
   .CourseRecord {
     background-color: yellow;
@@ -289,6 +287,56 @@ writing-mode: vertical-rl;
 .performanceScore {
   display: table-row;
 }
-tr.performanceScore {
+/* tr.performanceScore {
   height: 95px;
+} */
+
+/* Personal table formatting */
+table.t1 {
+  margin: 1em auto;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  
 }
+.t1 td {
+  padding: 4px 8px;
+  text-align: center;
+}
+.t1 th {
+  padding: 4px 8px;
+  text-align: left;
+  border-right: 1px solid black;
+}
+.t1 thead th {
+  background: #4f81bd;
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 15px;
+  color: #fff;
+}
+.t1 tr {
+  /* border-right: 1px solid #95b3d7; */
+}
+.t1 tbody tr {
+  /* border-bottom: 1px solid #95b3d7; */
+}
+.t1 tbody{
+  border: 1px solid black;
+}
+.t1 tbody tr:nth-child(odd) {
+  background: #dbe5f0;
+}
+.t1 tbody th, .t1 tbody tr:nth-child(even) td {
+  /* border-right: 1px solid #95b3d7; */
+}
+.t1 tfoot th {
+  background: #4f81bd;
+  text-align: left;
+  font-weight: normal;
+  font-size: 14px;
+  color: yellow;
+}
+  /* .t1 tr *:nth-child(2), .t1 tr *:nth-child(3), .t1 tr *:nth-child(4) {
+    text-align: center;
+  } */
