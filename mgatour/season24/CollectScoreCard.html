@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../../../css/CollectScoreCard.css">
+    <script type="text/javascript" src="./../../../scripts/js/CollectScoreCard.js"> </script>
+    <title>SubmitSC</title>
+</head>
+<body>
+    <Form ID="EventDetails">
+        <!-- Ask who it is  -->
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <!-- when the round was played  -->
+        <label for="DateOfRound">Date of Round:</label>
+        <input type="date" id="DateOfRound" name="DateOfRound">
+        <br>
+        <!-- Name of course played -->
+        <label for="Course">Choose a Course:</label>
+        <select id="Course" name="Course">
+            <option value="CourseA">Course A</option>
+            <option value="CourseB">Course B</option>
+            <option value="CourseC">Course C</option>
+        </select>
+<br>
+        <!-- Size of Event  -->
+        <label for="eventSize">Size of playing field:</label>
+        <input type="number" id="eventSize" name="eventSize" min="2" max="25">
+        <br>
+        <!-- Player details  -->
+        <label for="Player">Choose a Player:</label>
+        <select id="Players" name="Players">
+            <option value="Tom">Tom</option>
+            <option value="Dick">Dick</option>
+            <option value="Harry">Harry</option>
+        </select>
+        <br>
+        <!-- Is it a Major -->
+        <label for="major">Is it a Major:</label>
+        <select id="major" name="major">
+            <option value="No">No</option>
+            <option value="Bubble">Bubble open</option>
+            <option value="Tubby">Tubby Trophy</option>
+        </select>
+        <br>
+
+        <!-- Event Placement -->
+        <label for="Placement">Finishing Place:</label>
+  <input type="number" id="Placement" name="Placement" min="1" max="24">
+
+
+
+
+
+       
+    </Form>
+    <Form ID="scorecardDetails">
+
+    </Form>
+    
+</body>
+</html>
