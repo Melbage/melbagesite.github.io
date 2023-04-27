@@ -95,6 +95,9 @@
   .stats-item > p {
     margin: 0.25em 1rem 1rem;
   }
+.stats-item thead, th {
+  color: black;
+}
   /* .stats-item > img {
     order: -1;
     align-self: center;
