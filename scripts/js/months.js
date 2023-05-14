@@ -24,12 +24,13 @@
 // }
 // const ChangeMonth = document.querySelector("Month-select");
 const ChangeMonth = document.getElementById("Month-select");
-console.log(`${ChangeMonth.value}`)
+// console.log(`${ChangeMonth.value}`)
 ChangeMonth.addEventListener("change", (event) => {
     //   console.log(${event.target.value} )
       UpdateDisplayType(event.target.value )
    
     });
+
 
 // function DisplayRows(DisplayType) {
 //     // don't display any rows
@@ -73,7 +74,9 @@ ChangeMonth.addEventListener("change", (event) => {
 //     }
 // );
 function UpdateDisplayType(DisplayIt ) {
-    const MonthsClass = ["performanceScore202301","performanceScore202302","performanceScore202303","performanceScore202204","performanceScore202205","performanceScore202206","performanceScore202207","performanceScore202208","performanceScore202209","performanceScore202210","performanceScore202211", "performanceScore202212"];
+    // const MonthsClass = ["performanceScore202301","performanceScore202302","performanceScore202303","performanceScore202204","performanceScore202205","performanceScore202206","performanceScore202207","performanceScore202208","performanceScore202209","performanceScore202210","performanceScore202211", "performanceScore202212"];
+    const MonthsClass = `${ChangeMonth.value}`
+    console.log(MonthsClass)
     MonthsClass.forEach(
         function(cls){
             console.log(cls)
