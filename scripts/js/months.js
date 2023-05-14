@@ -24,12 +24,14 @@
 // }
 // const ChangeMonth = document.querySelector("Month-select");
 const ChangeMonth = document.getElementById("Month-select");
-// console.log(`${ChangeMonth.value}`)
+console.log(`${ChangeMonth.value}`, "bib")
 ChangeMonth.addEventListener("change", (event) => {
     //   console.log(${event.target.value} )
       UpdateDisplayType(event.target.value )
    
     });
+
+
 
 
 // function DisplayRows(DisplayType) {
@@ -39,9 +41,9 @@ ChangeMonth.addEventListener("change", (event) => {
 //             el.style.display = 'none'
 //         }
 //         );
-//     Array.from(document.getElementsByClassName("performanceStokes")).forEach(
-//         function(el){
-//             el.style.display = 'none'
+    // Array.from(document.getElementsByClassName("performanceStokes")).forEach(
+    //     function(el){
+    //         el.style.display = 'none'
 //         }
 //         );
 //     Array.from(document.getElementsByClassName("performancePutts")).forEach(
@@ -73,11 +75,32 @@ ChangeMonth.addEventListener("change", (event) => {
 //         // do stuff
 //     }
 // );
+var potentials = document.querySelectorAll("[class^=performancePutts]");
+console.log(potentials.length);
+
+  
+
+
+    document.querySelectorAll("[class^=performanceP]").forEach(
+    function(dontDisplay){
+        dontDisplay.style.display = 'none'
+    });
+    document.querySelectorAll("[class^=performanceStokes]").forEach(
+        function(dontDisplay){
+            dontDisplay.style.display = 'none'
+        });
+
+
+
 function UpdateDisplayType(DisplayIt ) {
     // const MonthsClass = ["performanceScore202301","performanceScore202302","performanceScore202303","performanceScore202204","performanceScore202205","performanceScore202206","performanceScore202207","performanceScore202208","performanceScore202209","performanceScore202210","performanceScore202211", "performanceScore202212"];
-    const MonthsClass = `${ChangeMonth.value}`
-    console.log(MonthsClass)
-    MonthsClass.forEach(
+    // const MonthsClass1 = ChangeMonth.value()
+    let selectElement = document.querySelectorAll('[name=Month-select]');
+let MonthSelectValues = [...selectElement[0].options].map(o => o.value)
+console.log(MonthSelectValues)
+    // console.log(MonthsClass)
+    // --MonthsClass.forEach(
+        MonthSelectValues.forEach(
         function(cls){
             console.log(cls)
             Array.from(document.getElementsByClassName(cls)).forEach(
@@ -89,44 +112,10 @@ function UpdateDisplayType(DisplayIt ) {
     Array.from(document.getElementsByClassName(DisplayIt)).forEach(
         function(el){
             el.style.display = 'table-row'
+    Array.from(document.getElementsByClassName("performanceStokes")).forEach(
+                function(el){
+                    el.style.display = 'none'
         });
-    };
+    });
 
-
-// function sortTable() {
-//     var table, rows, switching, i, x, y, shouldSwitch;
-//     table = document.getElementById("Months");
-//     switching = true;
-//     /*Make a loop that will continue until
-//     no switching has been done:*/
-//     while (switching) {
-//         //start by saying: no switching is done:
-//         switching = false;
-//         rows = table.rows;
-//         /*Loop through all table rows (except the
-//         first, which contains table headers):*/
-//         for (i = 1; i < (rows.length - 1); i++) {
-//         //start by saying there should be no switching:
-//         shouldSwitch = false;
-//         /*Get the two elements you want to compare,
-//         one from current row and one from the next:*/
-//         x = rows[i].getElementsByTagName("TD")[0];
-//         y = rows[i + 1].getElementsByTagName("TD")[0];
-//         //check if the two rows should switch place:
-//         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-//             //if so, mark as a switch and break the loop:
-//             shouldSwitch = true;
-//             break;
-//         }
-//         }
-//         if (shouldSwitch) {
-//         /*If a switch has been marked, make the switch
-//         and mark that a switch has been done:*/
-//         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-//         switching = true;
-//         }
-//     }
-//     }
-
-
-
+}
