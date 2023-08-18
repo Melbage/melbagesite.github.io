@@ -550,6 +550,9 @@ table.MelbagePlayerRecord {
 .MelbagePlayerRecord.RowDark{
   background: #bad9fb;
 }
+.MelbagePlayerRecord.QualifiedDark{
+  background: yellow;
+}
 table.stats-index  thead, th{
   color: black
 }
