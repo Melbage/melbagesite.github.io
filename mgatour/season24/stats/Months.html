@@ -1,71 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang='en'>
 <head>
-<meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="https://melbage.github.io/melbagesite.github.io/css/handicapsv2.css"> 
-<!-- <script type="text/javascript" src="../../../scripts/js/months.js" defer> </script> -->
-<script type="text/javascript" src="https://melbage.github.io/melbagesite.github.io/scripts/js/months.js" defer> </script>
+<meta charset='UTF-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<meta name='viewport' content='width=device-width'>
+<meta name='viewport' content=initial-scale=1.0'>
+<link rel='stylesheet' href='https://melbage.github.io/melbagesite.github.io/css/handicapsv2.css'>
+<script type='text/javascript' src='https://melbage.github.io/melbagesite.github.io/scripts/js/months.js' defer> </script>
 <title>Months</title>
 </head>
-<body onload="UpdateDisplayType('performanceScore202204')">
-    <!-- <p>Click the button to sort the table alphabetically, by name:</p>
-<p><button onclick="sortTable()">Sort</button></p> -->
-<table id="Months" class="months"> <caption> <h1><strong>Season 24 Monthly Record </strong></h1> 
-   
-    
-   
-<thead> 
-        <!-- <tr class='performanceScore'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Gross <br>Score</th> <th>Points</th> <th>Putts</th> <th>Fairways</th> <th>Ferrets</th> <th>Green<br>Regulation</th> </tr>  -->
-        <tr class='performanceScore'>
-            <th class="monthsMonth" rowspan="2">
-                <select name="Month-select" id="Month-select">
-                    <option value="performanceScore202304">choose a Month</option>
-                    <option value="performanceScore202304">April</option>
-                    <option value="performanceScore202305">May</option>
-                    <option value="performanceScore202306">June</option>
-                    <option value="performanceScore202307">July</option>
-                    <option value="performanceScore202308">August</option>
-                    <option value="performanceScore202309">September</option>
-                    <option value="performanceScore202310">October</option>
-                    <option value="performanceScore202311">November</option>
-                    <option value="performanceScore202312">December</option>
-                    <option value="performanceScore202401">January</option>
-                    <option value="performanceScore202402">February</option>
-                    <option value="performanceScore202403">March</option>
-                
-                </select>
-            </th>
-            <th class="monthsPlacement" rowspan="2" >Placement</th>
-            <th class="monthsPlayer" rowspan="2">Player</th>
-            <th class="monthsCourse">Course</th>
-            <th class="monthsMoney">Prize</th>
-            <th class="monthsHandicap" colspan="2">Handicap<br>Start End</th>
-            <!-- <th class="monthsHandicap">End<br>Handicap</th> -->
-            <th class="monthsGross"  rowspan="2">Gross <br>Score</th>
-            <th class="monthsPoints" rowspan="2">Points</th>
-            <th class="monthsPutts" rowspan="2">Putts</th>
-            <th class="monthsFairways" rowspan="2">Fairways</th>
-            <th class="monthsFerrets" rowspan="2">Ferrets</th>
-            <th class="monthsGreens" rowspan="2">Green<br>Regulation</th>
-        </tr>
-        <!-- <tr class='performanceScore'> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >[Link to Card]</th> -->
-            <!-- <th >Money</th> -->
-            <!-- <th >Start</th> -->
-            <!-- <th >End</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            <!-- <th >not needed as rowspan is set</th> -->
-            
-        <!-- </tr> -->
-        <!-- <tr class='performanceStokes'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Hole in<br>One</th><th>Albatross</th><th>Eagle</th><th>Birdie</th><th>Par</th><th>Bogey</th><th>Double<br>Bogey</th><th>Double<br>Bogey Plus</th> </tr>  -->
-        <!-- <tr class='performancePutts'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th> 0 Putts</th> <th> 1 Putts</th> <th> 2 Putts</th> <th> 3 Putts</th> <th> 3+ Putts</th> <th> Total <br>Putts</th> </tr> </thead> <tfoot> <tr> <th colspan="100%">Course Records will highlighted in yellow</th> </tr> </tfoot> -->
+<body onload='UpdateDisplayType('performanceScore202204')'>
+<table id='Months' class='months'> <caption> <h1><strong>Season 24 Monthly Record </strong></h1>
+<thead>
+<tr class='performanceScore'>
+<th class='monthsMonth' rowspan='2'>
+<select name='Month-select' id='Month-select'>
+<option value='performanceScore202304'>choose a Month</option>
+<option value='performanceScore202304'>April</option>
+<option value='performanceScore202305'>May</option>
+<option value='performanceScore202306'>June</option>
+<option value='performanceScore202307'>July</option>
+<option value='performanceScore202308'>August</option>
+<option value='performanceScore202309'>September</option>
+<option value='performanceScore202310'>October</option>
+<option value='performanceScore202311'>November</option>
+<option value='performanceScore202312'>December</option>
+<option value='performanceScore202401'>January</option>
+<option value='performanceScore202402'>February</option>
+<option value='performanceScore202403'>March</option>
+</select>
+</th>
+<th class='monthsPlacement' rowspan='2' >Placement</th>
+<th class='monthsPlayer' rowspan='2'>Player</th>
+<th class='monthsCourse'>Course</th>
+<th class='monthsMoney'>Prize</th>
+<th class='monthsHandicap' colspan='2'>Handicap<br>Start End</th>
+<th class='monthsGross'  rowspan='2'>Gross <br>Score</th>
+<th class='monthsPoints' rowspan='2'>Points</th>
+<th class='monthsPutts' rowspan='2'>Putts</th>
+<th class='monthsFairways' rowspan='2'>Fairways</th>
+<th class='monthsFerrets' rowspan='2'>Ferrets</th>
+<th class='monthsGreens' rowspan='2'>Green<br>Regulation</th>
+</tr>
 <tbody>
+
 <!--20230403P01--><tr class='performancePutts202304'><td>03-Apr-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230403am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.5</td><td>11.5</td><td>1</td><td>5</td><td>12</td><td>0</td><td>0</td><td>29</td></tr>
 <!--20230403P01--><tr class='performanceScore202304'><td>03-Apr-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230403am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.5</td><td>11.5</td><td>83</td><td>34</td><td>29</td><td>3</td><td>0</td><td>12</td></tr>
 <!--20230403P01--><tr class='performanceStokes202304'><td>03-Apr-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230403am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.5</td><td>11.5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>7</td><td>8</td><td>3</td><td>0</td></tr>
@@ -147,17 +125,26 @@
 <!--20230623P03--><tr class='performancePutts202306'><td>23-Jun-23</td><td>3<sup>rd</sup>of 3</td><td>Roy Dickens</td><td><a href='../scorecards/SC_RD.html#20230623am-RD'>Carlisle</a></td><td>&#163;2500</td><td>27.9</td><td>28.9</td><td>0</td><td>3</td><td>12</td><td>3</td><td>0</td><td>36</td></tr>
 <!--20230623P03--><tr class='performanceScore202306'><td>23-Jun-23</td><td>3<sup>rd</sup>of 3</td><td>Roy Dickens</td><td><a href='../scorecards/SC_RD.html#20230623am-RD'>Carlisle</a></td><td>&#163;2500</td><td>27.9</td><td>28.9</td><td>121</td><td>15</td><td>36</td><td>8</td><td>1</td><td>4</td></tr>
 <!--20230623P03--><tr class='performanceStokes202306'><td>23-Jun-23</td><td>3<sup>rd</sup>of 3</td><td>Roy Dickens</td><td><a href='../scorecards/SC_RD.html#20230623am-RD'>Carlisle</a></td><td>&#163;2500</td><td>27.9</td><td>28.9</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>6</td><td>11</td></tr>
-<!--20230801P02--><tr class='performanceScore202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>108</td><td>29</td><td>35</td><td>5</td><td>4</td><td>10</td></tr>
-<!--20230801P02--><tr class='performancePutts202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>0</td><td>6</td><td>8</td><td>3</td><td>1</td><td>35</td></tr>
-<!--20230801P02--><tr class='performanceStokes202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>7</td><td>6</td><td>5</td></tr>
-<!--20230801P01--><tr class='performanceScore202308'><td>01-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230801am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.8</td><td>11.9</td><td>85</td><td>32</td><td>33</td><td>6</td><td>1</td><td>10</td></tr>
 <!--20230801P01--><tr class='performancePutts202308'><td>01-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230801am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.8</td><td>11.9</td><td>0</td><td>4</td><td>13</td><td>1</td><td>0</td><td>33</td></tr>
+<!--20230801P01--><tr class='performanceScore202308'><td>01-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230801am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.8</td><td>11.9</td><td>85</td><td>32</td><td>33</td><td>6</td><td>1</td><td>10</td></tr>
 <!--20230801P01--><tr class='performanceStokes202308'><td>01-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230801am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.8</td><td>11.9</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>11</td><td>1</td><td>1</td></tr>
-
+<!--20230801P02--><tr class='performancePutts202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>0</td><td>6</td><td>8</td><td>3</td><td>1</td><td>35</td></tr>
+<!--20230801P02--><tr class='performanceScore202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>108</td><td>29</td><td>35</td><td>5</td><td>4</td><td>10</td></tr>
+<!--20230801P02--><tr class='performanceStokes202308'><td>01-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>David Rouse</td><td><a href='../scorecards/SC_DR.html#20230801am-DR'>Thorney Park</a></td><td>&#163;2500</td><td>29.1</td><td>29.2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>7</td><td>6</td><td>5</td></tr>
+<!--20230807P01--><tr class='performancePutts202308'><td>07-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230807am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.9</td><td>11.9</td><td>0</td><td>3</td><td>14</td><td>1</td><td>0</td><td>34</td></tr>
+<!--20230807P01--><tr class='performanceScore202308'><td>07-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230807am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.9</td><td>11.9</td><td>84</td><td>33</td><td>34</td><td>3</td><td>1</td><td>12</td></tr>
+<!--20230807P01--><tr class='performanceStokes202308'><td>07-Aug-23</td><td>1<sup>st</sup>of 2</td><td>Robert Thompson</td><td><a href='../scorecards/SC_RT.html#20230807am-RT'>Thorney Park</a></td><td>&#163;5000</td><td>11.9</td><td>11.9</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>11</td><td>2</td><td>0</td></tr>
+<!--20230807P02--><tr class='performancePutts202308'><td>07-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Simon Thompson</td><td><a href='../scorecards/SC_ST.html#20230807am-ST'>Thorney Park</a></td><td>&#163;2500</td><td>11.3</td><td>11.4</td><td>0</td><td>4</td><td>13</td><td>1</td><td>0</td><td>33</td></tr>
+<!--20230807P02--><tr class='performanceScore202308'><td>07-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Simon Thompson</td><td><a href='../scorecards/SC_ST.html#20230807am-ST'>Thorney Park</a></td><td>&#163;2500</td><td>11.3</td><td>11.4</td><td>89</td><td>28</td><td>33</td><td>5</td><td>2</td><td>7</td></tr>
+<!--20230807P02--><tr class='performanceStokes202308'><td>07-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Simon Thompson</td><td><a href='../scorecards/SC_ST.html#20230807am-ST'>Thorney Park</a></td><td>&#163;2500</td><td>11.3</td><td>11.4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>10</td><td>3</td><td>1</td></tr>
+<!--20230824P01--><tr class='performancePutts202308'><td>24-Aug-23</td><td>1<sup>st</sup>of 2</td><td>David Webster</td><td><a href='../scorecards/SC_DW.html#20230824am-DW'>Verulam</a></td><td>&#163;5000</td><td>16</td><td>16.1</td><td>0</td><td>3</td><td>13</td><td>2</td><td>0</td><td>35</td></tr>
+<!--20230824P01--><tr class='performanceScore202308'><td>24-Aug-23</td><td>1<sup>st</sup>of 2</td><td>David Webster</td><td><a href='../scorecards/SC_DW.html#20230824am-DW'>Verulam</a></td><td>&#163;5000</td><td>16</td><td>16.1</td><td>92</td><td>32</td><td>35</td><td>8</td><td>1</td><td>11</td></tr>
+<!--20230824P01--><tr class='performanceStokes202308'><td>24-Aug-23</td><td>1<sup>st</sup>of 2</td><td>David Webster</td><td><a href='../scorecards/SC_DW.html#20230824am-DW'>Verulam</a></td><td>&#163;5000</td><td>16</td><td>16.1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>9</td><td>4</td><td>1</td></tr>
+<!--20230824P02--><tr class='performancePutts202308'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>1</td><td>4</td><td>12</td><td>1</td><td>0</td><td>31</td></tr>
+<!--20230824P02--><tr class='performanceScore202308'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>94</td><td>31</td><td>31</td><td>10</td><td>0</td><td>8</td></tr>
+<!--20230824P02--><tr class='performanceStokes202308'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>8</td><td>4</td><td>2</td></tr>
 
 </tbody>
 </table>
 </body>
 </html>
-
-
