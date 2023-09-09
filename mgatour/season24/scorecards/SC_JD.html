@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang='en'>
 <head>
-<meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="./../../../css/handicapsv2.css"> <script type="text/javascript" src="./../../../scripts/js/personal.js"> </script>
-<title>Jon Dey</title>
+<meta charset='UTF-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<meta name='viewport' content='width=device-width'>
+<meta name='viewport' content='initial-scale=1.0'>
+<link rel='stylesheet' href='https://melbage.github.io/melbagesite.github.io/css/main.css'>
+<title>JD ScoreCards</title>
 </head>
-<body onload="UpdateDisplayType('performanceScore','performanceStokes','performancePutts')">
-<table id="Table1" class="t1"> <caption> <h1><strong>Season 24 Personal Record </strong></h1> <p> Choose a static's to view: <button type="button" onclick="UpdateDisplayType('performanceScore','performanceStokes','performancePutts')">Score </button> <button type="button" onclick="UpdateDisplayType('performanceStokes','performanceScore','performancePutts')">Stokes </button> <button type="button" onclick="UpdateDisplayType('performancePutts','performanceScore','performanceStokes')">Putts </button> </p> </caption>
-<thead> <tr class='performanceScore'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Gross <br>Score</th> <th>Points</th> <th>Putts</th> <th>Fairways</th> <th>Ferrets</th> <th>Green<br>Regulation</th> </tr> <tr class='performanceStokes'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th>Hole in<br>One</th><th>Albatross</th><th>Eagle</th><th>Birdie</th><th>Par</th><th>Bogey</th><th>Double<br>Bogey</th><th>Double<br>Bogey Plus</th> </tr> <tr class='performancePutts'> <th>Dates</th> <th>Finish<br>Placement</th> <th>Player</th> <th>Course<br>[Link to Card]</th> <th>Prize<br>Money</th> <th>Start<br>Handicap</th> <th>End<br>Handicap</th> <th> 0 Putts</th> <th> 1 Putts</th> <th> 2 Putts</th> <th> 3 Putts</th> <th> 3+ Putts</th> <th> Total <br>Putts</th> </tr> </thead> <tfoot> <tr> <th colspan="100%">Course Records will highlighted in yellow</th> </tr> </tfoot>
-<tbody>
+<body>
+<header>Season 24 Scorecards</header>
 
-
-<!--20230824P02--><tr class='performanceScore'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>94</td><td>31</td><td>31</td><td>10</td><td>0</td></tr>
-<tr class='performancePutts'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>1</td><td>4</td><td>12</td><td>1</td><td>0</td><td>31</td></tr>
-<tr class='performanceStokes'><td>24-Aug-23</td><td>2<sup>nd</sup>of 2</td><td>Jon Dey</td><td><a href='../scorecards/SC_JD.html#20230824am-JD'>Verulam</a></td><td>&#163;2500</td><td>16.9</td><td>17</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>8</td><td>4</td><td>2</td></tr>
-
-</tbody>
+<!-- HTML Score Card -->
+<article>
+<table class='scorecard'>
+<caption id='20230824am-JD' ><strong>24-Aug-23</strong> </caption><tbody>
+<tr><td colspan='2'>Club </td><td colspan='8'>Verulam</td></tr>
+<tr><td colspan='2'>Par/SS</td><td colspan='2'></td><td colspan='4'><strong>Num. Of Fairways</strong></td><td colspan='2'>15</td></tr>
+<tr><td colspan='2'>Date</td><td colspan='2'>Verulam</td><td colspan='4'><strong>Playing Handicap</strong></td><td colspan='2'>17</td></tr>
+<tr><td colspan='2'>Event Place</td><td>2<sup>nd</sup>of 2</td><td>Major</td><td colspan='2'>NO</td><td colspan='2'><strong>Prize Money</strong></td><td colspan='2'>&pound;2500</td></tr>
+<tr ><td colspan='2' rowspan='2' >Game Stats</td><td>Db+</td><td>Db</td><td>Bi</td><td>P</td><td>B</td><td>E</td><td>A</td><td>H1</td>
+<tr><td>2</td><td>4</td><td>8</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr colspan='2' ><td>Hole No</td><td >Par</td><td >Stroke<br>Index</td><td >Gross <br> Score</td><td>Points</td><td> Putts</td><td >Fairways</td><td >Ferrets</td><td colspan='2'>Greens in<br> Regulation</td></tr>
+<tr><td  >1</td><td>4</td><td>11</td><td>5</td><td>2</td><td>2</td><td>0</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >2</td><td>4</td><td>7</td><td>4</td><td>3</td><td>1</td><td>1</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >3</td><td>4</td><td>17</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >4</td><td>4</td><td>3</td><td>6</td><td>1</td><td>2</td><td>0</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >5</td><td>4</td><td>5</td><td>5</td><td>2</td><td>0</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >6</td><td>4</td><td>15</td><td>5</td><td>2</td><td>2</td><td>0</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >7</td><td>4</td><td>1</td><td>5</td><td>2</td><td>1</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >8</td><td>3</td><td>9</td><td>5</td><td>1</td><td>2</td><td>0</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >9</td><td>5</td><td>13</td><td>8</td><td>0</td><td>2</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >10</td><td>3</td><td>8</td><td>6</td><td>0</td><td>3</td><td>0</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >11</td><td>5</td><td>14</td><td>5</td><td>3</td><td>1</td><td>1</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >12</td><td>4</td><td>12</td><td>5</td><td>2</td><td>2</td><td>0</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >13</td><td>4</td><td>10</td><td>5</td><td>2</td><td>2</td><td>1</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >14</td><td>4</td><td>6</td><td>6</td><td>1</td><td>2</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >15</td><td>4</td><td>2</td><td>6</td><td>1</td><td>2</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >16</td><td>4</td><td>18</td><td>5</td><td>1</td><td>2</td><td>0</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  >17</td><td>3</td><td>16</td><td>3</td><td>3</td><td>2</td><td>0</td><td>0</td><td colspan='2'>Yes</td></tr>
+<tr><td  >18</td><td>5</td><td>4</td><td>6</td><td>2</td><td>1</td><td>1</td><td>0</td><td colspan='2'></td></tr>
+<tr><td  ><strong>totals</strong></td><td></td><td></td><td>94</td><td>31</td><td>31</td><td>10</td><td>0</td><td colspan='2'>8</td></tr>
 </table>
+</article>
 </body>
 </html>
