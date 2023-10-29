@@ -25,7 +25,7 @@ else
     echo "No Handicaps data file to process" 
 fi
 # Processing player data
-PlayersList=(PB PEC DAR ST KG J RD JC DW DR ANB AB RT MC)
+PlayersList=(PB PEC DAR ST KG JD RD JC DW DR ANB AB RT MC)
 for i in "${PlayersList[@]}"
 do
 	# echo "$i"
@@ -46,6 +46,9 @@ do
             echo "</html>" >> ./SC_DR.html
         else
             grep "\S" "$PersonalFileName" > "$i.html"
+            sed -i '' 's/"</</g' "$i.html"
+            sed -i '' 's/>"/>/g' "$i.html"
+            sed -i '' 's/""/"/g' "$i.html"
             echo "</tbody>" >> "$i.html"
             echo "</table>" >> "$i.html"
             echo "</body>" >> "$i.html"
@@ -68,6 +71,9 @@ do
             echo "</html>" >> ./SC_DR.html
         else
             grep "\S" "$ScoreCardsFileName" > "$i.html"
+            sed -i '' 's/"</</g' "$i.html"
+            sed -i '' 's/>"/>/g' "$i.html"
+            sed -i '' 's/""/"/g' "$i.html"
             echo "</tbody>" >> "$i.html"
             echo "</table>" >> "$i.html"
             echo "</body>" >> "$i.html"
