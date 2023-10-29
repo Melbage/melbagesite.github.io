@@ -21,6 +21,8 @@ if [  -f ./'Season24 MGA Playing Rounds (Responses) - Handicaps.csv'  ]
 then
     echo "Rename Season24 MGA Playing Rounds (Responses) - Handicaps.csv file to Handicaps.html"
     mv ./'Season24 MGA Playing Rounds (Responses) - Handicaps.csv' ./Handicaps.html
+    sed -i '' 's/"document/document/g' ./Handicaps.html
+    sed -i '' 's/);"/);/g' ./Handicaps.html
 else
     echo "No Handicaps data file to process" 
 fi
