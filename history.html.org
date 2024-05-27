@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://melbage.github.io/melbagesite.github.io/css/main.css">
+    <title>Statistics Archive</title>
+</head>
+<body>
+    <header><h1>Archives : MGA  & Melbage  stat</h1></header>
+  <p> <main class="stats-layout">
+  <article class="stats-item">
+    <!-- <h1>Past MGA Seasons </h1> -->
+    <table class="stats-item">
+        <caption><h1>Past MGA Seasons</h1> </caption>
+        <thead>
+            <th> MGA Season </th><th>Stats</th><th>Chinney Choo</th><th>Majors</th><th>DAB</th>
+        </thead>
+        <tbody>
+            
+                <tr><th title="Apr 22 - Mar 23"> 23 <br> Apr 22 - Mar 23 </th><td><a href="mgatour/season23/stats/statsindex.html">&check; </a></td><td> </td> <td> </td> </tr>
+                <tr><th>Season 22 Apr 2020 to Mar 2022 </th><td><a href="mgatour/season22/statsindex.htm">&check; </a></td><td> </td> <td> </td> </tr>
+                <tr><th>Season 21 Apr 2019 to Mar 2020 </th><td><a href="mgatour/season21/statsindex.htm">&check; </a></td><td><a href="mgatour/season21/chinney.htm">&check;</a> </td><td><a href="mgatour/season21/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 20 Apr 2018 to Mar 2019 </th><td><a href="mgatour/season20/statsindex.htm">&check; </a></td><td><a href="mgatour/season20/chinney.htm">&check;</a> </td><td><a href="mgatour/season20/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 19 Apr 2017 to Mar 2018 </th><td><a href="mgatour/season19/statsindex.htm">&check; </a></td><td><a href="mgatour/season19/chinney.htm">&check;</a> </td><td><a href="mgatour/season19/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 18 Apr 2016 to Mar 2017 </th><td><a href="mgatour/season18/statsindex.htm">&check; </a></td><td><a href="mgatour/season18/chinney.htm">&check;</a> </td><td><a href="mgatour/season18/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 17 Apr 2015 to Mar 2016 </th><td><a href="mgatour/season17/statsindex.htm">&check; </a></td><td><a href="mgatour/season17/chinney.htm">&check;</a> </td><td><a href="mgatour/season17/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 16 Apr 2014 to Mar 2015 </th><td><a href="mgatour/season16/statsindex.htm">&check; </a></td><td><a href="mgatour/season16/chinney.htm">&check;</a> </td><td><a href="mgatour/season16/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 15 Apr 2013 to Mar 2014 </th><td><a href="mgatour/season15/statsindex.htm">&check; </a></td><td><a href="mgatour/season15/chinney.htm">&check;</a> </td><td><a href="mgatour/season15/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 14 Apr 2012 to Mar 2013 </th><td><a href="mgatour/season14/statsindex.htm">&check; </a></td><td><a href="mgatour/season14/chinney.htm">&check;</a> </td><td><a href="mgatour/season14/majorstrophy.htm">&check;</a> </td><td> </td> </tr>
+                <tr><th>Season 13 Apr 2011 to Mar 2012 </th><td><a href="mgatour/season13/statsindex.htm">&check; </a></td><td><a href="mgatour/season13/chinney.htm">&check;</a> </td><td> </td><td> </td> </tr>
+                <tr><th>Season 12 Apr 2010 to Mar 2011 </th><td><a href="mgatour/season12/statsindex.htm">&check; </a></td><td><a href="mgatour/season12/chinney.htm">&check;</a> </td><td> </td><td> </td> </tr>
+                <tr><th>Season 11 Apr 2009 to Mar 2010 </th><td><a href="mgatour/season11/statsindex.htm">&check; </a></td><td><a href="mgatour/season11/chinney.htm">&check;</a> </td><td> </td><td> </td> </tr>
+                <tr><th>Season 10 Apr 2008 to Mar 2009 </th><td><a href="mgatour/season10/statsindex.htm">&check; </a></td><td><a href="mgatour/season10/chinney.htm">&check;</a> </td><td> </td><td> </td> </tr>
+                <tr><th>Season 9   Apr 2007 to Mar 2008 </th><td><a href="mgatour/season9/statsindex.htm">&check; </a></td><td><a href="mgatour/season9/chinney.htm"> &check;</a> </td><td> </td><td> </td> </tr>
+                <tr><th>Season 8   Apr 2006 to Mar 2007 </th><td><a href="mgatour/season8/statsindex.htm">&check; </a></td><td><a href="mgatour/season8/chinney.htm"> &check;</a> </td><td> </td> <td><A href="mgatour/season8/2006dabtrophy.htm">&check;</A> </td> </tr>
+                <tr><th>Season 7   Apr 2005 to Mar 2006 </th><td><a href="mgatour/season7/statsindex.htm">&check; </a></td><td><a href="mgatour/season7/chinney.htm"> &check;</a> </td><td> </td> <td><A href="mgatour/season7/2005dabtrophy.htm">&check;</A> </td> </tr>
+                <tr><th>Season 6   Apr 2004 to Mar 2005 </th><td><a href="mgatour/season6/statsindex.htm">&check; </a></td><td><a href="mgatour/season6/chinney.htm"> &check;</a> </td><td> </td> <td><A href="season6/dabtrophy2004.htm">&check;</A> </td> </tr>
+                <tr><th>Season 5   Apr 2003 to Mar 2004 </th><td><a href="mgatour/season5/statsindex.htm">&check; </a></td><td><a href="mgatour/season5/chinney.htm"> &check;</a> </td><td> </td> <td><A href="season4/dabtrophy.htm">&check;</A> </td> </tr>
+                <tr><th>Season 4   Apr 2002 to Mar 2003 </th><td><a href="mgatour/season4/statsindex.htm">&check; </a></td><td><a href="mgatour/season4/chinney.htm"> &check;</a> </td><td> </td> <td> </td> </tr>
+                <tr><th>Season 3   Apr 2001 to Mar 2002 </th><td><a href="mgatour/season3/statsindex.htm">&check; </a></td><td> </td><td> </td> </td><td> </td> </tr>
+                <tr><th>Season 2   Apr 2000 to Mar 2001 </th><td><a href="mgatour/season2/statsindex.htm">&check; </a></td><td> </td><td> </td> </td><td> </td> </tr>
+                <!--<th> </th> <tr- <li><a href="../../season1/statsindex.htm">Season 1 Apr 1999 to Mar 2000 </a> </li> --> 
+                <tr><th>Season 1 Apr 1999 to Mar 2000 </th><td><a href="../../mga_stats/points_order.htm">&check;</a></td><td> </td><td> </td></td> </tr>
+            
+        </tbody>
+    </table>
+  </article>
+ 
+  <article class="stats-item">
+    <table>
+        <caption><h1>Past Melbage Results</h1> </caption>
+        <thead>
+            <th>Year - Location</th><th> Results </th><th>Ferret Count</th><th>Fantasy Table</th><th>Order Of Merit</th>
+        </thead>
+        <tbody>
+            <tr>
+                <tr><th>2022 - Eastbourne   </th><td><a href="./Melbage/2022/results2022.html">&check;</a> </td><td><a href="./Melbage/2022/FerretCount2022.html">&check;</a> </td><td><a href=""></a> </td><td><a href="./Melbage/2022/OrderMerit2022.html">&check;</a></td></tr>
+                <tr><th>2019 - Eastbourne   </th><td><a href="./Melbage/2019/melbage19result.htm">&check;</a> </td><td><a href="./Melbage/2019/2019ferretcount.htm">&check;</a> </td><td><a href="./Melbage/2019/2019fantasyresult.htm">&check;</a> </td><td><a href="./Melbage/2019/2019OrderOfMerit.htm">&check;</a></td></tr>
+                <tr><th>2018 - Eastbourne   </th><td><a href="./Melbage/2018/Melbage2018Scores.htm">&check;</a> </td><td><a href="Pages/2018ferretcount.htm">&check;</a> </td><td><a href="Pages/2018fantasyresult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2017 - Bournemouth  </th><td><a href="./Melbage/2017/Melbage2017Scores.htm">&check;</a> </td><td><a href="Pages/2017ferretcount.htm">&check;</a> </td><td> </td><td> </td></tr>
+                <tr><th>2016 - Marbella     </th><td><a href="./Melbage/2016/Melbage2016Scores.htm">&check;</a> </td><td><a href="Pages/2016ferretcount.htm">&check;</a> </td><td><a href="Pages/2016FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2015 - Eastbourne   </th><td><a href="./Melbage/2015/Melbage2015Scores.htm">&check;</a> </td><td><a href="Pages/2015ferretcount.htm">&check;</a> </td><td><a href="Pages/2015FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2014 - Bournemouth  </th><td><a href="./Melbage/2014/Melbage2014Scores.htm">&check;</a> </td><td><a href="Pages/2014ferretcount.htm">&check;</a> </td><td><a href="Pages/2014FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2013 - Bournemouth  </th><td><a href="./Melbage/2013/Melbage2013Scores.htm">&check;</a> </td><td><a href="Pages/2013ferretcount.htm">&check;</a> </td><td><a href="Pages/2013FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2012 - Bournemouth  </th><td><a href="./Melbage/2012/Melbage2012Scores.htm">&check;</a> </td><td> </td><td><a href="Pages/2012FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2011 - Marbella     </th><td><a href="./Melbage/2011/2011MelbageResult.htm">&check;</a> </td><td> </td><td><a href="Pages/2011FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2010 - Eastbourne   </th><td><a href="./Melbage/2010/2010melbageResult.htm">&check;</a> </td><td> </td><td><a href="Pages/2010FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2009 - Bognor Regis </th><td><a href="./Melbage/2009/2009MelbageResult.htm">&check;</a> </td><td> </td><td><a href="Pages/2009FantasyResult.htm">&check;</a> </td><td> </td></tr>
+                <tr><th>2008 - Bournemouth  </th><td><A href="./Melbage/2008/2008MelbageResult.htm">&check;</A></td><td> </td><td><A href="Pages/2008FantasyResult.htm">&check;</A> </td><td><A href="Pages/2008OrderOfMerit.htm">&check;</A> </td></tr>
+                <tr><th>2007 - Eastbourne   </th><td><A href="./Melbage/2007/2007MelbageResult.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr><th>2006 - Bognor Regis </th><td><A href="./Melbage/2006/2006MelbageResult.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr><th>2005 - Bournemouth  </th><td><A href="Pages/Mel14Results.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr><th>2002 - Eastbourne   </th><td><A href="Pages/eastbourne.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr><th>2001 - Minehead     </th><td><A href="Pages/minehead.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr><th>2000 - Portugal     </th><td><A href="Pages/vilamoura.htm">&check;</A> </td><td> </td><td> </td><td> </td></tr>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+                <tr></tr><th> </th><td> </td><td> </td><td> </td>
+            </tr>
+        </tbody>
+    </table>
+  </article>
+
+</body>
+</html>

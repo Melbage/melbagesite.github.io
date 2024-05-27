@@ -103,6 +103,10 @@ width: 100%;
     padding: 1px;
     caption-side: bottom;
 }
+table.stats-item thead th{
+color: black;
+
+}
 
 p{
     text-align: center;
@@ -510,3 +514,45 @@ table .honour_events{
 .honour_events td:nth-child(3), .honour_events td:nth-child(2) {
   text-align: left;
 } 
+
+/* Melbage players stats table */
+
+table.MelbagePlayerRecord {
+  margin: 1em auto;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  
+}
+.MelbagePlayerRecord td {
+  padding: 4px 8px;
+  text-align: center;
+  border: 1px solid black;
+}
+.MelbagePlayerRecord th {
+  padding: 4px 8px;
+  text-align: left;
+  border-right: 1px solid black;
+}
+.MelbagePlayerRecord thead th {
+  background: #4f81bd;
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 15px;
+  color: #fff;
+}
+/* tbody.MelbagePlayerRecord tbody{
+  border: 1px solid black;
+} */
+.MelbagePlayerRecord.RowLight{
+  background: #f2f7fc;
+}
+.MelbagePlayerRecord.RowDark{
+  background: #bad9fb;
+}
+.MelbagePlayerRecord.QualifiedDark{
+  background: yellow;
+}
+table.stats-index  thead, th{
+  color: black
+}
