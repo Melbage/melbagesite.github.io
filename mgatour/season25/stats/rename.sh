@@ -1,37 +1,37 @@
 #!/bin/bash
 # Processing stats pages
 # Months
-if [  -f ./'Season24 MGA Playing Rounds (Responses) - Months.csv'  ]
+if [  -f ./'Season25 MGA Playing Rounds (Responses) - Months.csv'  ]
 then
-    echo "Rename Season24 MGA Playing Rounds (Responses) - Months.csv file to Months.html"
-    mv ./'Season24 MGA Playing Rounds (Responses) - Months.csv' ./Months.html
+    echo "Rename Season25 MGA Playing Rounds (Responses) - Months.csv file to Months.html"
+    mv ./'Season25 MGA Playing Rounds (Responses) - Months.csv' ./Months.html
 else
     echo "No Months data file to process" 
 fi
 # TourStats
-if [  -f ./'Season24 MGA Playing Rounds (Responses) - TourStats.csv'  ]
+if [  -f ./'Season25 MGA Playing Rounds (Responses) - TourStats.csv'  ]
 then
-    echo "Rename Season24 MGA Playing Rounds (Responses) - TourStats.csv file to TourStats.html"
-    mv ./'Season24 MGA Playing Rounds (Responses) - TourStats.csv' ./TourStats.html
+    echo "Rename Season25 MGA Playing Rounds (Responses) - TourStats.csv file to TourStats.html"
+    mv ./'Season25 MGA Playing Rounds (Responses) - TourStats.csv' ./TourStats.html
 else
     echo "No TourStats data file to process" 
 fi
 # Handicaps
-if [  -f ./'Season24 MGA Playing Rounds (Responses) - Handicaps.csv'  ]
+if [  -f ./'Season25 MGA Playing Rounds (Responses) - Handicaps.csv'  ]
 then
-    echo "Rename Season24 MGA Playing Rounds (Responses) - Handicaps.csv file to Handicaps.html"
-    mv ./'Season24 MGA Playing Rounds (Responses) - Handicaps.csv' ./Handicaps.html
+    echo "Rename Season25 MGA Playing Rounds (Responses) - Handicaps.csv file to Handicaps.html"
+    mv ./'Season25 MGA Playing Rounds (Responses) - Handicaps.csv' ./Handicaps.html
 else
     echo "No Handicaps data file to process" 
 fi
 # Processing player data
-PlayersList=(PB PEC DAR ST KG JD RD JC DW DR ANB AB RT MC)
+PlayersList=(PB PEC DAR ST KG JD RD JC DW DR ANB AB RT MC AB)
 for i in "${PlayersList[@]}"
 do
 	# echo "$i"
-    # echo "Season24 MGA Playing Rounds (Responses) - $i.csv "
-    PersonalFileName="Season24 MGA Playing Rounds (Responses) - $i.csv"
-    ScoreCardsFileName="Season24 MGA Playing Rounds (Responses) - $i (1).csv"
+    # echo "Season25 MGA Playing Rounds (Responses) - $i.csv "
+    PersonalFileName="Season25 MGA Playing Rounds (Responses) - $i.csv"
+    ScoreCardsFileName="Season25 MGA Playing Rounds (Responses) - $i (1).csv"
     if [ -f "$PersonalFileName" ]
     then    
         echo "Processing $PersonalFileName"
@@ -75,6 +75,6 @@ do
             rm "$ScoreCardsFileName"
         fi
     else
-        echo "No file Season24 MGA Playing Rounds (Responses) - $i (1).csv "
+        echo "No file Season25 MGA Playing Rounds (Responses) - $i (1).csv "
     fi
 done
