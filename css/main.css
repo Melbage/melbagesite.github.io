@@ -387,6 +387,8 @@ main {
 }
 article {
   margin: 1rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 /* Now lets do a Grid-based layout */
@@ -555,4 +557,10 @@ table.MelbagePlayerRecord {
 }
 table.stats-index  thead, th{
   color: black
+}
+
+.HeaderIMG {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
